@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Index.html">들어가면서</a></li><li class="chapter-item expanded affix "><li class="part-title">On Lisp</li><li class="chapter-item expanded "><a href="onlisp/01-extensible-language.html">01</a></li><li class="chapter-item expanded "><a href="onlisp/02-functions.html">02</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Index.html">들어가면서</a></li><li class="chapter-item expanded affix "><li class="part-title">On Lisp</li><li class="chapter-item expanded "><a href="onlisp/01-extensible-language.html">01. The Extensible Language</a></li><li class="chapter-item expanded "><a href="onlisp/02-functions.html">02. Functions</a></li><li class="chapter-item expanded "><a href="onlisp/03-functional-programming.html">03. Functional Programming</a></li><li class="chapter-item expanded "><a href="onlisp/04-utility-functions.html">04. Utility Functions</a></li><li class="chapter-item expanded "><a href="onlisp/05-returning-functions.html">05. Returning Functions</a></li><li class="chapter-item expanded "><a href="onlisp/06-functions-as-representation.html">06. Functions as Representation</a></li><li class="chapter-item expanded "><a href="onlisp/07-macros.html">07. Macros</a></li><li class="chapter-item expanded "><a href="onlisp/08-when-to-use-macros.html">08. When to Use Macros</a></li><li class="chapter-item expanded "><a href="onlisp/09-variable-capture.html">09. Variable Capture</a></li><li class="chapter-item expanded "><a href="onlisp/10-other-macro-pitfalls.html">10. Other Macro Pitfalls</a></li><li class="chapter-item expanded "><a href="onlisp/11-classic-macros.html">11. Classic Macros</a></li><li class="chapter-item expanded "><a href="onlisp/12-generalized-variables.html">12. Generalized Variables</a></li><li class="chapter-item expanded "><a href="onlisp/13-computation-at-compile-time.html">13. Computation at Compile-Time</a></li><li class="chapter-item expanded "><a href="onlisp/14-anaphoric-macros.html">14. Anaphoric Macros</a></li><li class="chapter-item expanded "><a href="onlisp/15-macros-returning-functions.html">15. Macros Returning Functions</a></li><li class="chapter-item expanded "><a href="onlisp/16-macro-defining-macros.html">16. Macro-Defining Macros</a></li><li class="chapter-item expanded "><a href="onlisp/17-read-macros.html">17. Read-Macros</a></li><li class="chapter-item expanded "><a href="onlisp/18-destructuring.html">18. Destructuring</a></li><li class="chapter-item expanded "><a href="onlisp/19-a-query-compiler.html">19. A Query Compiler</a></li><li class="chapter-item expanded "><a href="onlisp/20-continuations.html">20. Continuations</a></li><li class="chapter-item expanded "><a href="onlisp/21-multiple-processes.html">21. Multiple Processes</a></li><li class="chapter-item expanded "><a href="onlisp/22-nondeterminism.html">22. Nondeterminism</a></li><li class="chapter-item expanded "><a href="onlisp/23-parsing-with-atns.html">23. Parsing with ATNs</a></li><li class="chapter-item expanded "><a href="onlisp/24-prolog.html">24. Prolog</a></li><li class="chapter-item expanded "><a href="onlisp/25-object-oriented-lisp.html">25. Object-Oriented Lisp</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -177,8 +177,544 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="들어가면서"><a class="header" href="#들어가면서">들어가면서</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="01"><a class="header" href="#01">01</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="02"><a class="header" href="#02">02</a></h1>
+<ul>
+<li>
+<p><a href="https://paulgraham.com/onlisp.html">paulgraham/onlisp</a></p>
+</li>
+<li>
+<p>문서</p>
+<ul>
+<li><a href="https://paulgraham.com/onlisptext.html">영어</a></li>
+<li><a href="https://www.asahi-net.or.jp/~kc7k-nd/onlispjhtml/">일본어</a></li>
+</ul>
+</li>
+</ul>
+<p>이 문서는 번역본이 아닌 요약본입니다.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="01-the-extensible-language"><a class="header" href="#01-the-extensible-language">01. The Extensible Language</a></h1>
+<ul>
+<li>리스프의 가장 특징적인 특성 중 하나는 작성 중인 프로그램에 맞게 조정할 수 있다는 점.</li>
+<li>리스프 자체가 리스프 프로그램이며, 리스프 프로그램은 리스프 데이터 구조인 리스트으로 표현할 수 있다.</li>
+</ul>
+<h2 id="11-design-by-evolution"><a class="header" href="#11-design-by-evolution">1.1. Design by Evolution</a></h2>
+<ul>
+<li>
+<p>프로그램을 작성하면서 계획을 세우는 능력은 두 가지 중대한 결과를 가져온다:</p>
+<ul>
+<li>프로그램을 작성하는 데 걸리는 시간이 짧아진다. 
+<ul>
+<li>계획을 세우면서 동시에 프로그램을 작성하면 주의 집중이 잘된다.</li>
+</ul>
+</li>
+<li>그리고 그렇게 만들어진 프로그램은 더 좋은 프로그램이 된다.
+<ul>
+<li>프로그램의 최종 디자인은 진화의 산물이기 때문이다.</li>
+<li>최종 목표를 찾는 동안 잘못된 부분을 발견하면 그 자리에서 반드시 다시 작성한다는 원칙을 지키는 한, 최종적으로 완성된 프로그램은 미리 몇 주 동안 계획을 세웠을 때보다 훨씬 더 우아한 프로그램이 될 것이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>리스프의 가장 큰 위험은 리스프 자체가 사용자에게 악영향을 미칠 수 있다는 것</p>
+<ul>
+<li>리스프를 한동안 사용하게 되면 프로그래밍 언어와 애플리케이션의 궁합에 너무 민감해져서 원래 사용하던 프로그래밍 언어로 돌아가도, 리스프만큼의 필요한 유연성을 얻지 못한다라는 생각에 갇히게 될 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-programming-bottom-up"><a class="header" href="#12-programming-bottom-up">1.2. Programming Bottom-Up</a></h2>
+<h2 id="13-extensible-software"><a class="header" href="#13-extensible-software">1.3. Extensible Software</a></h2>
+<h2 id="14-extending-lisp"><a class="header" href="#14-extending-lisp">1.4. Extending Lisp</a></h2>
+<pre><code class="language-lisp">(mapcar fn
+        (do* ((x 1 (1+ x))
+              (result (list x) (push x result)))
+            ((= x 10) (nreverse result))))
+</code></pre>
+<pre><code class="language-lisp">(map1-n fn 10)
+</code></pre>
+<pre><code class="language-lisp">(do ((x a (+ 1 x)))
+    ((&gt; x b))
+  (print x))
+</code></pre>
+<pre><code class="language-lisp">(for (x a b)
+  (print x))
+</code></pre>
+<h3 id="map1-n"><a class="header" href="#map1-n">map1-n</a></h3>
+<pre><code class="language-lisp">(defun map1-n (fn n)
+  (mapa-b fn 1 n))
+
+(defun mapa-b (fn a b &amp;optional (step 1))
+  (do ((i a (+ i step))
+       (result nil))
+      ((&gt; i b) (nreverse result))
+    (push (funcall fn i) result)))
+</code></pre>
+<h3 id="for"><a class="header" href="#for">for</a></h3>
+<pre><code class="language-lisp">(defmacro for ((var start stop) &amp;body body)
+  (let ((gstop (gensym)))
+    `(do ((,var ,start (1+ ,var))
+          (,gstop ,stop))
+         ((&gt; ,var ,gstop))
+       ,@body)))
+</code></pre>
+<h2 id="15-why-lisp-or-when"><a class="header" href="#15-why-lisp-or-when">1.5. Why Lisp (or When)</a></h2>
+<h2 id="짚고-넘어가기"><a class="header" href="#짚고-넘어가기">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="02-functions"><a class="header" href="#02-functions">02 Functions</a></h1>
+<p>데이터로서 함수</p>
+<h2 id="21-functions-as-data"><a class="header" href="#21-functions-as-data">2.1 Functions as Data</a></h2>
+<h2 id="22-defining-functions"><a class="header" href="#22-defining-functions">2.2 Defining Functions</a></h2>
+<pre><code class="language-lisp"> &gt; (defun double (x) (* x 2))
+DOUBLE
+
+&gt; #'double
+#&lt;Interpreted-Function C66ACE&gt;
+
+&gt; (double 3)
+6
+</code></pre>
+<pre><code class="language-lisp">&gt; (eq #'double (car (list #'double)))
+T
+</code></pre>
+<pre><code class="language-lisp">&gt; #'(lambda (x) (* x 2))
+#&lt;Interpreted-Function C674CE&gt;
+
+&gt; ((lambda (x) (* x 2)) 3)
+6
+</code></pre>
+<pre><code class="language-lisp">lisp1 / lisp2
+&gt; (setq double 2)
+2
+&gt; (double double)
+4
+</code></pre>
+<pre><code class="language-lisp">&gt; (symbol-value 'double)
+2
+&gt; (symbol-function 'double)
+#&lt;Interpreted-Function C66ACE&gt;
+
+&gt; (setq x #'append)
+#&lt;Compiled-Function 46B4BE&gt;
+&gt; (eq (symbol-value 'x) (symbol-function 'append))
+T
+</code></pre>
+<pre><code class="language-lisp">(defun double (x) (* x 2))
+(setf (symbol-function 'double)
+#'(lambda (x) (* x 2)))
+</code></pre>
+<h2 id="23-functional-arguments"><a class="header" href="#23-functional-arguments">2.3 Functional Arguments</a></h2>
+<pre><code class="language-lisp">
+
+(+ 1 2)
+(apply #'+ '(1 2))
+(apply (symbol-function '+) '(1 2))
+(apply #'(lambda (x y) (+ x y)) '(1 2))
+
+</code></pre>
+<pre><code class="language-lisp">(apply #'+ 1 '(2))
+(funcall #'+ 1 2)
+&gt; (mapcar #'(lambda (x) (+ x 10))
+          '(1 2 3))
+(11 12 13)
+&gt; (mapcar #'+
+          '(1 2 3)
+          '(10 100 1000))
+(11 102 1003)
+</code></pre>
+<pre><code class="language-lisp">&gt; (sort '(1 4 2 5 6 7 3) #'&lt;)
+(1 2 3 4 5 6 7)
+&gt; (remove-if #'evenp '(1 2 3 4 5 6 7))
+(1 3 5 7)
+(defun our-remove-if (fn lst)
+  (if (null lst)
+      nil
+      (if (funcall fn (car lst))
+          (our-remove-if fn (cdr lst))
+          (cons (car lst) (our-remove-if fn (cdr lst))))))
+
+
+</code></pre>
+<h2 id="24-functions-as-properties"><a class="header" href="#24-functions-as-properties">2.4 Functions as Properties</a></h2>
+<pre><code class="language-lisp">(defun behave (animal)
+  (case animal
+    (dog (wag-tail)
+      (bark))
+    (rat (scurry)
+      (squeak))
+    (cat (rub-legs)
+      (scratch-carpet))))
+(defun behave (animal)
+(funcall (get animal 'behavior)))
+
+
+(setf (get ’dog ’behavior)
+      #’(lambda ()
+          (wag-tail)
+          (bark)))
+</code></pre>
+<h2 id="25-scope"><a class="header" href="#25-scope">2.5 Scope</a></h2>
+<pre><code class="language-lisp">(let ((y 7))
+  (defun scope-test (x)
+    (list x y)))
+
+&gt; (let ((y 5))
+    (scope-test 3))
+(3 5)
+
+&gt; (let ((y 5))
+    (scope-test 3))
+(3 7)
+</code></pre>
+<h2 id="26-closures"><a class="header" href="#26-closures">2.6 Closures</a></h2>
+<pre><code class="language-lisp">(defun list+ (lst n)
+  (mapcar #’(lambda (x) (+ x n))
+          lst))
+
+&gt; (list+ ’(1 2 3) 10)
+(11 12 13)
+
+(let ((counter 0))
+  (defun new-id () (incf counter))
+  (defun reset-id () (setq counter 0)))
+
+(defun make-adder (n)
+  #’(lambda (x) (+ x n)))
+
+
+&gt; (setq add2 (make-adder 2)
+        add10 (make-adder 10))
+#&lt;Interpreted-Function BF162E&gt;
+&gt; (funcall add2 5)
+7
+&gt; (funcall add10 3)
+13
+
+
+(defun make-adderb (n)
+  #’(lambda (x &amp;optional change)
+       (if change
+           (setq n x)
+           (+ x n))))
+
+&gt; (setq addx (make-adderb 1))
+#&lt;Interpreted-Function BF1C66&gt;
+&gt; (funcall addx 3)
+4
+
+&gt; (funcall addx 100 t)
+100
+&gt; (funcall addx 3)
+103
+
+
+&gt; (setq cities (make-dbms ’((boston . us) (paris . france))))
+(#&lt;Interpreted-Function 8022E7&gt;
+#&lt;Interpreted-Function 802317&gt;
+#&lt;Interpreted-Function 802347&gt;)
+</code></pre>
+<pre><code class="language-lisp">Figure 2.1: Three closures share a list.
+
+(defun make-dbms (db)
+  (list
+    #’(lambda (key)
+        (cdr (assoc key db)))
+    #’(lambda (key val)
+        (push (cons key val) db)
+        key)
+    #’(lambda (key)
+        (setf db (delete key db :key #’car))
+        key)))
+</code></pre>
+<pre><code class="language-lisp">&gt; (funcall (car cities) ’boston)
+US
+&gt; (funcall (second cities) ’london ’england)
+LONDON
+&gt; (funcall (car cities) ’london)
+ENGLAND
+
+(defun lookup (key db)
+  (funcall (car db) key))
+
+</code></pre>
+<h2 id="27-local-functions"><a class="header" href="#27-local-functions">2.7 Local Functions</a></h2>
+<pre><code class="language-lisp">&gt; (mapcar #’(lambda (x) (+ 2 x)) ’(2 5 7 3))
+(4 7 9 5)
+</code></pre>
+<blockquote>
+<p>(mapcar #’copy-tree ’((a b) (c d e)))
+((A B) (C D E))</p>
+</blockquote>
+<p>(defun list+ (lst n)
+(mapcar #’(lambda (x) (+ x n))
+lst))</p>
+<blockquote>
+<p>(labels ((inc (x) (1+ x)))
+(inc 3))
+4</p>
+</blockquote>
+<p>(let ((x 10) (y x))
+y)</p>
+<p>(defun count-instances (obj lsts)
+(labels ((instances-in (lst)
+(if (consp lst)
+(+ (if (eq (car lst) obj) 1 0)
+(instances-in (cdr lst)))
+0)))
+(mapcar #’instances-in lsts)))</p>
+<blockquote>
+<p>(count-instances ’a ’((a b c) (d a r p a) (d a r) (a a)))
+(1 2 1 2)</p>
+</blockquote>
+<h2 id="28-tail-recursion"><a class="header" href="#28-tail-recursion">2.8 Tail-Recursion</a></h2>
+<pre><code class="language-lisp">(defun our-length (lst)
+(if (null lst)
+0
+(1+ (our-length (cdr lst)))))
+</code></pre>
+<pre><code class="language-lisp">(defun our-find-if (fn lst)
+(if (funcall fn (car lst))
+(car lst)
+(our-find-if fn (cdr lst))))
+
+
+(defun our-length (lst)
+(labels ((rec (lst acc)
+(if (null lst)
+acc
+(rec (cdr lst) (1+ acc)))))
+(rec lst 0)))
+
+(proclaim ’(optimize speed))
+
+(defun triangle (n)
+  (labels ((tri (c n)
+  (declare (type fixnum n c))
+  (if (zerop n)
+  c
+  (tri (the fixnum (+ n c))
+  (the fixnum (- n 1))))))
+  (tri 0 n)))
+</code></pre>
+<h2 id="29-compilation"><a class="header" href="#29-compilation">2.9 Compilation</a></h2>
+<pre><code class="language-lisp">&gt; (defun foo (x) (1+ x))
+FOO
+
+&gt; (compiled-function-p #’foo)
+NIL
+
+&gt; (compile ’foo)
+FOO
+
+&gt; (compiled-function-p #’foo)
+T
+&gt; (compile nil ’(lambda (x) (+ x 2)))
+#&lt;Compiled-Function BF55BE&gt;
+
+
+&gt; (progn (compile ’bar ’(lambda (x) (* x 3)))
+(compiled-function-p #’bar))
+T
+
+
+&gt; (let ((y 2))
+(defun foo (x) (+ x y)))
+
+&gt; (compile ’make-adder)
+MAKE-ADDER
+&gt; (compiled-function-p (make-adder 2))
+T
+
+(defun 50th (lst) (nth 49 lst))
+
+(proclaim ’(inline 50th))
+
+
+(defun foo (lst)
+(+ (50th lst) 1))
+
+(defun foo (lst)
+(+ (nth 49 lst) 1))
+
+
+</code></pre>
+<h2 id="210-functions-from-lists"><a class="header" href="#210-functions-from-lists">2.10 Functions from Lists</a></h2>
+<h2 id="짚고-넘어가기-1"><a class="header" href="#짚고-넘어가기-1">짚고 넘어가기</a></h2>
+<ul>
+<li>defun</li>
+<li>eq</li>
+<li>lambda</li>
+<li>symbol-value</li>
+<li>symbol-function</li>
+<li>lisp1 / lisp2</li>
+<li>setq</li>
+<li>mapcar</li>
+<li>funcall</li>
+<li>labels</li>
+<li>let</li>
+<li>proclaim</li>
+<li>optimize</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="03-functional-programming"><a class="header" href="#03-functional-programming">03. Functional Programming</a></h1>
+<h2 id="31-functional-design"><a class="header" href="#31-functional-design">3.1. Functional Design</a></h2>
+<h2 id="32-imperative-outside-in"><a class="header" href="#32-imperative-outside-in">3.2. Imperative Outside-In</a></h2>
+<h2 id="33-functional-interfaces"><a class="header" href="#33-functional-interfaces">3.3. Functional Interfaces</a></h2>
+<h2 id="34-interactive-programming"><a class="header" href="#34-interactive-programming">3.4. Interactive Programming</a></h2>
+<h2 id="짚고-넘어가기-2"><a class="header" href="#짚고-넘어가기-2">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="04-utility-functions"><a class="header" href="#04-utility-functions">04. Utility Functions</a></h1>
+<h2 id="41-birth-of-a-utility"><a class="header" href="#41-birth-of-a-utility">4.1. Birth of a Utility</a></h2>
+<h2 id="42-invest-in-abstraction"><a class="header" href="#42-invest-in-abstraction">4.2. Invest in Abstraction</a></h2>
+<h2 id="43-operations-on-lists"><a class="header" href="#43-operations-on-lists">4.3. Operations on Lists</a></h2>
+<h2 id="44-search"><a class="header" href="#44-search">4.4. Search</a></h2>
+<h2 id="45-mapping"><a class="header" href="#45-mapping">4.5. Mapping</a></h2>
+<h2 id="46-io"><a class="header" href="#46-io">4.6. I/O</a></h2>
+<h2 id="47-symbols-and-strings"><a class="header" href="#47-symbols-and-strings">4.7. Symbols and Strings</a></h2>
+<h2 id="48-density"><a class="header" href="#48-density">4.8. Density</a></h2>
+<h2 id="짚고-넘어가기-3"><a class="header" href="#짚고-넘어가기-3">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="05-returning-functions"><a class="header" href="#05-returning-functions">05. Returning Functions</a></h1>
+<h2 id="51-common-lisp-evolves"><a class="header" href="#51-common-lisp-evolves">5.1. Common Lisp Evolves</a></h2>
+<h2 id="52-orthogonality"><a class="header" href="#52-orthogonality">5.2. Orthogonality</a></h2>
+<h2 id="53-memoizing"><a class="header" href="#53-memoizing">5.3. Memoizing</a></h2>
+<h2 id="54-composing-functions"><a class="header" href="#54-composing-functions">5.4. Composing Functions</a></h2>
+<h2 id="55-recursion-on-cdrs"><a class="header" href="#55-recursion-on-cdrs">5.5. Recursion on Cdrs</a></h2>
+<h2 id="56-recursion-on-subtrees"><a class="header" href="#56-recursion-on-subtrees">5.6. Recursion on Subtrees</a></h2>
+<h2 id="57-when-to-build-functions"><a class="header" href="#57-when-to-build-functions">5.7. When to Build Functions</a></h2>
+<h2 id="짚고-넘어가기-4"><a class="header" href="#짚고-넘어가기-4">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="06-functions-as-representation"><a class="header" href="#06-functions-as-representation">06. Functions as Representation</a></h1>
+<h2 id="61-networks"><a class="header" href="#61-networks">6.1. Networks</a></h2>
+<h2 id="62-compiling-networks"><a class="header" href="#62-compiling-networks">6.2. Compiling Networks</a></h2>
+<h2 id="63-looking-forward"><a class="header" href="#63-looking-forward">6.3. Looking Forward</a></h2>
+<h2 id="짚고-넘어가기-5"><a class="header" href="#짚고-넘어가기-5">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="07-macros"><a class="header" href="#07-macros">07. Macros</a></h1>
+<h2 id="71-how-macros-work"><a class="header" href="#71-how-macros-work">7.1. How Macros Work</a></h2>
+<h2 id="72-backquote"><a class="header" href="#72-backquote">7.2. Backquote</a></h2>
+<h2 id="73-defining-simple-macros"><a class="header" href="#73-defining-simple-macros">7.3. Defining Simple Macros</a></h2>
+<h2 id="74-testing-macroexpansion"><a class="header" href="#74-testing-macroexpansion">7.4. Testing Macroexpansion</a></h2>
+<h2 id="75-destructuring-in-parame"><a class="header" href="#75-destructuring-in-parame">7.5. Destructuring in Parame</a></h2>
+<h2 id="76-a-model-of-macros"><a class="header" href="#76-a-model-of-macros">7.6. A Model of Macros</a></h2>
+<h2 id="77-macros-as-programs"><a class="header" href="#77-macros-as-programs">7.7. Macros as Programs</a></h2>
+<h2 id="78-macro-style"><a class="header" href="#78-macro-style">7.8. Macro Style</a></h2>
+<h2 id="79-dependence-on-macros"><a class="header" href="#79-dependence-on-macros">7.9. Dependence on Macros</a></h2>
+<h2 id="710-macros-from-functions"><a class="header" href="#710-macros-from-functions">7.10. Macros from Functions</a></h2>
+<h2 id="711-symbol-macros"><a class="header" href="#711-symbol-macros">7.11. Symbol Macros</a></h2>
+<h2 id="짚고-넘어가기-6"><a class="header" href="#짚고-넘어가기-6">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="08-when-to-use-macros"><a class="header" href="#08-when-to-use-macros">08. When to Use Macros</a></h1>
+<h2 id="81-when-nothing-else-will-do"><a class="header" href="#81-when-nothing-else-will-do">8.1. When Nothing Else Will Do</a></h2>
+<h2 id="82-macro-or-function"><a class="header" href="#82-macro-or-function">8.2. Macro or Function?</a></h2>
+<h2 id="83-applications-for-macros"><a class="header" href="#83-applications-for-macros">8.3. Applications for Macros</a></h2>
+<h2 id="짚고-넘어가기-7"><a class="header" href="#짚고-넘어가기-7">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="09-variable-capture"><a class="header" href="#09-variable-capture">09. Variable Capture</a></h1>
+<h2 id="91-macro-argument-capture"><a class="header" href="#91-macro-argument-capture">9.1. Macro Argument Capture</a></h2>
+<h2 id="92-free-symbol-capture"><a class="header" href="#92-free-symbol-capture">9.2. Free Symbol Capture</a></h2>
+<h2 id="93-when-capture-occurs"><a class="header" href="#93-when-capture-occurs">9.3. When Capture Occurs</a></h2>
+<h2 id="94-avoiding-capture-with-better-names"><a class="header" href="#94-avoiding-capture-with-better-names">9.4. Avoiding Capture with Better Names</a></h2>
+<h2 id="95-avoiding-capture-by-prior-evaluation"><a class="header" href="#95-avoiding-capture-by-prior-evaluation">9.5. Avoiding Capture by Prior Evaluation</a></h2>
+<h2 id="96-avoiding-capture-with-gensyms"><a class="header" href="#96-avoiding-capture-with-gensyms">9.6. Avoiding Capture with Gensyms</a></h2>
+<h2 id="97-avoiding-capture-with-packages"><a class="header" href="#97-avoiding-capture-with-packages">9.7. Avoiding Capture with Packages</a></h2>
+<h2 id="98-capture-in-other-name-spaces"><a class="header" href="#98-capture-in-other-name-spaces">9.8. Capture in Other Name-Spaces</a></h2>
+<h2 id="99-why-bother"><a class="header" href="#99-why-bother">9.9. Why Bother?</a></h2>
+<h2 id="짚고-넘어가기-8"><a class="header" href="#짚고-넘어가기-8">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="10-other-macro-pitfalls"><a class="header" href="#10-other-macro-pitfalls">10. Other Macro Pitfalls</a></h1>
+<h2 id="101-number-of-evaluations"><a class="header" href="#101-number-of-evaluations">10.1. Number of Evaluations</a></h2>
+<h2 id="102-order-of-evaluation"><a class="header" href="#102-order-of-evaluation">10.2. Order of Evaluation</a></h2>
+<h2 id="103-non-functional-expanders"><a class="header" href="#103-non-functional-expanders">10.3. Non-functional Expanders</a></h2>
+<h2 id="104-recursion"><a class="header" href="#104-recursion">10.4. Recursion</a></h2>
+<h2 id="짚고-넘어가기-9"><a class="header" href="#짚고-넘어가기-9">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="11-classic-macros"><a class="header" href="#11-classic-macros">11. Classic Macros</a></h1>
+<h2 id="111-creating-context"><a class="header" href="#111-creating-context">11.1. Creating Context</a></h2>
+<h2 id="112-the-with--macro"><a class="header" href="#112-the-with--macro">11.2. The with- Macro</a></h2>
+<h2 id="113-conditional-evaluation"><a class="header" href="#113-conditional-evaluation">11.3. Conditional Evaluation</a></h2>
+<h2 id="114-iteration"><a class="header" href="#114-iteration">11.4. Iteration</a></h2>
+<h2 id="115-iteration-with-multiple-values"><a class="header" href="#115-iteration-with-multiple-values">11.5. Iteration with Multiple Values</a></h2>
+<h2 id="116-need-for-macros"><a class="header" href="#116-need-for-macros">11.6. Need for Macros</a></h2>
+<h2 id="짚고-넘어가기-10"><a class="header" href="#짚고-넘어가기-10">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="12-generalized-variables"><a class="header" href="#12-generalized-variables">12. Generalized Variables</a></h1>
+<h2 id="121-the-concept"><a class="header" href="#121-the-concept">12.1. The Concept</a></h2>
+<h2 id="122-the-multiple-evaluation-problem"><a class="header" href="#122-the-multiple-evaluation-problem">12.2. The Multiple Evaluation Problem</a></h2>
+<h2 id="123-new-utilities"><a class="header" href="#123-new-utilities">12.3. New Utilities</a></h2>
+<h2 id="124-more-complex-utilities"><a class="header" href="#124-more-complex-utilities">12.4. More Complex Utilities</a></h2>
+<h2 id="125-defining-inversions"><a class="header" href="#125-defining-inversions">12.5. Defining Inversions</a></h2>
+<h2 id="짚고-넘어가기-11"><a class="header" href="#짚고-넘어가기-11">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="13-computation-at-compile-time"><a class="header" href="#13-computation-at-compile-time">13. Computation at Compile-Time</a></h1>
+<h2 id="131-new-utilities"><a class="header" href="#131-new-utilities">13.1. New Utilities</a></h2>
+<h2 id="132-example-bezier-curves"><a class="header" href="#132-example-bezier-curves">13.2. Example: Bezier Curves</a></h2>
+<h2 id="133-applications"><a class="header" href="#133-applications">13.3. Applications</a></h2>
+<h2 id="짚고-넘어가기-12"><a class="header" href="#짚고-넘어가기-12">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="14-anaphoric-macros"><a class="header" href="#14-anaphoric-macros">14. Anaphoric Macros</a></h1>
+<h2 id="141-anaphoric-variants"><a class="header" href="#141-anaphoric-variants">14.1. Anaphoric Variants</a></h2>
+<h2 id="142-failure"><a class="header" href="#142-failure">14.2. Failure</a></h2>
+<h2 id="143-referential-transparency"><a class="header" href="#143-referential-transparency">14.3. Referential Transparency</a></h2>
+<h2 id="짚고-넘어가기-13"><a class="header" href="#짚고-넘어가기-13">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="15-macros-returning-functions"><a class="header" href="#15-macros-returning-functions">15. Macros Returning Functions</a></h1>
+<h2 id="151-building-functions"><a class="header" href="#151-building-functions">15.1. Building Functions</a></h2>
+<h2 id="152-recursion-on-cdrs"><a class="header" href="#152-recursion-on-cdrs">15.2. Recursion on Cdrs</a></h2>
+<h2 id="153-recursion-on-subtrees"><a class="header" href="#153-recursion-on-subtrees">15.3. Recursion on Subtrees</a></h2>
+<h2 id="154-lazy-evaluation"><a class="header" href="#154-lazy-evaluation">15.4. Lazy Evaluation</a></h2>
+<h2 id="짚고-넘어가기-14"><a class="header" href="#짚고-넘어가기-14">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="16-macro-defining-macros"><a class="header" href="#16-macro-defining-macros">16. Macro-Defining Macros</a></h1>
+<h2 id="161-abbreviations"><a class="header" href="#161-abbreviations">16.1. Abbreviations</a></h2>
+<h2 id="162-properties"><a class="header" href="#162-properties">16.2. Properties</a></h2>
+<h2 id="163-anaphoric-macros"><a class="header" href="#163-anaphoric-macros">16.3. Anaphoric Macros</a></h2>
+<h2 id="짚고-넘어가기-15"><a class="header" href="#짚고-넘어가기-15">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="17-read-macros"><a class="header" href="#17-read-macros">17. Read-Macros</a></h1>
+<h2 id="171-macro-characters"><a class="header" href="#171-macro-characters">17.1. Macro Characters</a></h2>
+<h2 id="172-dispatching-macro-characters"><a class="header" href="#172-dispatching-macro-characters">17.2. Dispatching Macro Characters</a></h2>
+<h2 id="173-delimiters"><a class="header" href="#173-delimiters">17.3. Delimiters</a></h2>
+<h2 id="174-when-what-happens"><a class="header" href="#174-when-what-happens">17.4. When What Happens</a></h2>
+<h2 id="짚고-넘어가기-16"><a class="header" href="#짚고-넘어가기-16">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="18-destructuring"><a class="header" href="#18-destructuring">18. Destructuring</a></h1>
+<h2 id="181-destructuring-on-lists"><a class="header" href="#181-destructuring-on-lists">18.1. Destructuring on Lists</a></h2>
+<h2 id="182-other-structures"><a class="header" href="#182-other-structures">18.2. Other Structures</a></h2>
+<h2 id="183-reference"><a class="header" href="#183-reference">18.3. Reference</a></h2>
+<h2 id="184-matching"><a class="header" href="#184-matching">18.4. Matching</a></h2>
+<h2 id="짚고-넘어가기-17"><a class="header" href="#짚고-넘어가기-17">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="19-a-query-compiler"><a class="header" href="#19-a-query-compiler">19. A Query Compiler</a></h1>
+<h2 id="191-the-database"><a class="header" href="#191-the-database">19.1. The Database</a></h2>
+<h2 id="192-pattern-matching-queries"><a class="header" href="#192-pattern-matching-queries">19.2. Pattern-Matching Queries</a></h2>
+<h2 id="193-a-query-interpreter"><a class="header" href="#193-a-query-interpreter">19.3. A Query Interpreter</a></h2>
+<h2 id="194-restrictions-on-binding"><a class="header" href="#194-restrictions-on-binding">19.4. Restrictions on Binding</a></h2>
+<h2 id="195-a-query-compiler"><a class="header" href="#195-a-query-compiler">19.5. A Query Compiler</a></h2>
+<h2 id="짚고-넘어가기-18"><a class="header" href="#짚고-넘어가기-18">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="20-continuations"><a class="header" href="#20-continuations">20. Continuations</a></h1>
+<h2 id="201-scheme-continuations"><a class="header" href="#201-scheme-continuations">20.1. Scheme Continuations</a></h2>
+<h2 id="202-continuation-passing-macros"><a class="header" href="#202-continuation-passing-macros">20.2. Continuation-Passing Macros</a></h2>
+<h2 id="203-code-walkers-and-cps-conversion"><a class="header" href="#203-code-walkers-and-cps-conversion">20.3. Code-Walkers and CPS Conversion</a></h2>
+<h2 id="짚고-넘어가기-19"><a class="header" href="#짚고-넘어가기-19">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="21-multiple-processes"><a class="header" href="#21-multiple-processes">21. Multiple Processes</a></h1>
+<h2 id="211-the-process-abstraction"><a class="header" href="#211-the-process-abstraction">21.1. The Process Abstraction</a></h2>
+<h2 id="212-implementation"><a class="header" href="#212-implementation">21.2. Implementation</a></h2>
+<h2 id="213-the-less-than-rapid-prototype"><a class="header" href="#213-the-less-than-rapid-prototype">21.3. The Less-than-Rapid Prototype</a></h2>
+<h2 id="짚고-넘어가기-20"><a class="header" href="#짚고-넘어가기-20">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="22-nondeterminism"><a class="header" href="#22-nondeterminism">22. Nondeterminism</a></h1>
+<h2 id="221-the-concepts"><a class="header" href="#221-the-concepts">22.1. The Concepts</a></h2>
+<h2 id="222-search"><a class="header" href="#222-search">22.2. Search</a></h2>
+<h2 id="223-scheme-implementation"><a class="header" href="#223-scheme-implementation">22.3. Scheme Implementation</a></h2>
+<h2 id="224-common-lisp-implementation"><a class="header" href="#224-common-lisp-implementation">22.4. Common Lisp Implementation</a></h2>
+<h2 id="225-cuts"><a class="header" href="#225-cuts">22.5. Cuts</a></h2>
+<h2 id="226-true-nondeterminism"><a class="header" href="#226-true-nondeterminism">22.6. True Nondeterminism</a></h2>
+<h2 id="짚고-넘어가기-21"><a class="header" href="#짚고-넘어가기-21">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="23-parsing-with-atns"><a class="header" href="#23-parsing-with-atns">23. Parsing with ATNs</a></h1>
+<h2 id="231-background"><a class="header" href="#231-background">23.1. Background</a></h2>
+<h2 id="232-the-formalism"><a class="header" href="#232-the-formalism">23.2. The Formalism</a></h2>
+<h2 id="233-nondeterminism"><a class="header" href="#233-nondeterminism">23.3. Nondeterminism</a></h2>
+<h2 id="234-an-atn-compiler"><a class="header" href="#234-an-atn-compiler">23.4. An ATN Compiler</a></h2>
+<h2 id="235-a-sample-atn"><a class="header" href="#235-a-sample-atn">23.5. A Sample ATN</a></h2>
+<h2 id="짚고-넘어가기-22"><a class="header" href="#짚고-넘어가기-22">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="24-prolog"><a class="header" href="#24-prolog">24. Prolog</a></h1>
+<h2 id="241-concepts"><a class="header" href="#241-concepts">24.1. Concepts</a></h2>
+<h2 id="242-an-interpreter"><a class="header" href="#242-an-interpreter">24.2. An Interpreter</a></h2>
+<h2 id="243-rules"><a class="header" href="#243-rules">24.3. Rules</a></h2>
+<h2 id="244-the-need-for-nondeterminism"><a class="header" href="#244-the-need-for-nondeterminism">24.4. The Need for Nondeterminism</a></h2>
+<h2 id="245-new-implementation"><a class="header" href="#245-new-implementation">24.5. New Implementation</a></h2>
+<h2 id="246-adding-prolog-features"><a class="header" href="#246-adding-prolog-features">24.6. Adding Prolog Features</a></h2>
+<h2 id="247-examples"><a class="header" href="#247-examples">24.7. Examples</a></h2>
+<h2 id="248-the-senses-of-compile"><a class="header" href="#248-the-senses-of-compile">24.8. The Senses of Compile</a></h2>
+<h2 id="짚고-넘어가기-23"><a class="header" href="#짚고-넘어가기-23">짚고 넘어가기</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="25-object-oriented-lisp"><a class="header" href="#25-object-oriented-lisp">25. Object-Oriented Lisp</a></h1>
+<h2 id="251-plus-ca-change"><a class="header" href="#251-plus-ca-change">25.1. Plus c¸a Change</a></h2>
+<h2 id="252-objects-in-plain-lisp"><a class="header" href="#252-objects-in-plain-lisp">25.2. Objects in Plain Lisp</a></h2>
+<h2 id="253-classes-and-instances"><a class="header" href="#253-classes-and-instances">25.3. Classes and Instances</a></h2>
+<h2 id="254-methods"><a class="header" href="#254-methods">25.4. Methods</a></h2>
+<h2 id="255-auxiliary-methods-and-combination"><a class="header" href="#255-auxiliary-methods-and-combination">25.5. Auxiliary Methods and Combination</a></h2>
+<h2 id="256-clos-and-lisp"><a class="header" href="#256-clos-and-lisp">25.6. CLOS and Lisp</a></h2>
+<h2 id="257-when-to-object"><a class="header" href="#257-when-to-object">25.7. When to Object</a></h2>
+<h2 id="짚고-넘어가기-24"><a class="header" href="#짚고-넘어가기-24">짚고 넘어가기</a></h2>
 
                     </main>
 
