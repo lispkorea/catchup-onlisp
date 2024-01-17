@@ -1,0 +1,13 @@
+[book]
+title = "catchup-onlisp"
+description = "catchup-onlisp"
+language = "kr"
+multilingual = false
+src = "src"
+
+[output.html]
+no-section-label = true
+site-url = "/catchup-onlisp/"
+git-repository-url = "https://github.com/lispkorea/catchup-onlisp"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/lispkorea/catchup-onlisp/edit/main/{path}"
