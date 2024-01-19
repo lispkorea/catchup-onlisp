@@ -4,10 +4,10 @@
 
 # On Lisp
 
-- [01. The Extensible Language](onlisp/01-extensible-language.md)
-- [02. Functions](onlisp/02-functions.md)
-- [03. Functional Programming](onlisp/03-functional-programming.md)
-- [04. Utility Functions](onlisp/04-utility-functions.md)
+- [01. 확장 가능한 언어](onlisp/01-extensible-language.md)
+- [02. 함수](onlisp/02-functions.md)
+- [03. 함수형 프로그래밍](onlisp/03-functional-programming.md)
+- [04. 유틸리티 함수](onlisp/04-utility-functions.md)
 - [05. Returning Functions](onlisp/05-returning-functions.md)
 - [06. Functions as Representation](onlisp/06-functions-as-representation.md)
 - [07. Macros](onlisp/07-macros.md)
