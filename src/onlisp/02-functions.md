@@ -1,146 +1,198 @@
-# 02 Functions
+# 02 함수
 
- 데이터로서 함수
+## 2.1 데이터로서 함수
 
+- 리스프 자체가 함수 집합 
+  - 새로운 오퍼레이터를 추가할 수 있음.
 
-## 2.1 Functions as Data
+- 리스프 함수는
+  - 런타임에 생성하고 반환 가능
+  - 인수로 전달가능
+  - 변수가 값으로 함수를 가질 수 있다.
+  - 함수단위나 파일 단위로 컴파일할 수 있다.
 
-## 2.2 Defining Functions
+## 2.2 함수 정의
+
+- 함수 정의 방법
+  - defun
+  - lambda
+
+`defun`으로 함수 정의하기
+
 ``` lisp
- > (defun double (x) (* x 2))
-DOUBLE
+(defun my-double (x)
+  (* x 2))
 
-> #'double
-#<Interpreted-Function C66ACE>
+#'my-double
+;;=> #<Interpreted-Function C66ACE>
 
-> (double 3)
-6
+(my-double 3)
+;;=> 6
+```
+
+`lambda`로 함수 정의하기
+
+``` lisp
+#'(lambda (x) (* x 2))
+;;=> #<Interpreted-Function C674CE>
+
+((lambda (x) (* x 2)) 3)
+;;=> 6
+```
+
+함수/변수는 다른 이름공간을 가지고 있다.
+
+|        | 이름 공간 분리 | ex          |
+| ------ | -------------- | ----------- |
+| Lisp-1 | 분리를 안함.   | Clojure     |
+| Lisp-2 | 분리를 함.     | Common Lisp |
+
+``` lisp
+(setq my-double 2)
+;;=> 2
+
+(my-double my-double)
+;;=> 4
+
+(symbol-value 'my-double)
+;;=> 2
+
+(symbol-function 'my-double)
+;;=> #<Interpreted-Function C66ACE>
 ```
 
 ``` lisp
-> (eq #'double (car (list #'double)))
-T
+(setq x #'append)
+;;=> #<Compiled-Function 46B4BE>
+
+(eq (symbol-value 'x)
+    (symbol-function 'append))
+;;=> T
+
+(eq #'my-double (car (list #'my-double)))
+;;=> T
 ```
 
-``` lisp
-> #'(lambda (x) (* x 2))
-#<Interpreted-Function C674CE>
+`defun`은 심볼을 함수 이름 공간에 추가한다.
 
-> ((lambda (x) (* x 2)) 3)
-6
+``` lisp
+(defun my-double (x)
+  (* x 2))
+
+(setf (symbol-function 'my-double)
+      #'(lambda (x) (* x 2)))
 ```
 
-``` lisp
-lisp1 / lisp2
-> (setq double 2)
-2
-> (double double)
-4
-```
+## 2.3 인자로서의 함수
+
+`apply` 사용법
 
 ``` lisp
-> (symbol-value 'double)
-2
-> (symbol-function 'double)
-#<Interpreted-Function C66ACE>
-
-> (setq x #'append)
-#<Compiled-Function 46B4BE>
-> (eq (symbol-value 'x) (symbol-function 'append))
-T
-```
-
-``` lisp
-(defun double (x) (* x 2))
-(setf (symbol-function 'double)
-#'(lambda (x) (* x 2)))
-```
-
-## 2.3 Functional Arguments
-
-``` lisp
-
-
 (+ 1 2)
-(apply #'+ '(1 2))
-(apply (symbol-function '+) '(1 2))
-(apply #'(lambda (x y) (+ x y)) '(1 2))
+;;=> 3
 
+(apply #'+ '(1 2))
+;;=> 3
+
+(apply (symbol-function '+) '(1 2))
+;;=> 3
+
+(apply #'(lambda (x y) (+ x y)) '(1 2))
+;;=> 3
 ```
+
+`funcall` 사용법
 
 ``` lisp
 (apply #'+ 1 '(2))
+;;=> 3
+
 (funcall #'+ 1 2)
-> (mapcar #'(lambda (x) (+ x 10))
-          '(1 2 3))
-(11 12 13)
-> (mapcar #'+
-          '(1 2 3)
-          '(10 100 1000))
-(11 102 1003)
+;;=> 3
 ```
 
+`mapcar` 사용법
+
 ``` lisp
-> (sort '(1 4 2 5 6 7 3) #'<)
-(1 2 3 4 5 6 7)
-> (remove-if #'evenp '(1 2 3 4 5 6 7))
-(1 3 5 7)
+(mapcar #'(lambda (x) (+ x 10))
+          '(1 2 3))
+;;=> (11 12 13)
+
+(mapcar #'+
+        '(1 2 3)
+        '(10 100 1000))
+;;=> (11 102 1003)
+```
+
+`sort` 사용법
+
+``` lisp
+(sort '(1 4 2 5 6 7 3) #'<)
+;;=> (1 2 3 4 5 6 7)
+```
+
+`remove-if` 사용법
+
+``` lisp
+(remove-if #'evenp '(1 2 3 4 5 6 7))
+;;=> (1 3 5 7)
+
 (defun our-remove-if (fn lst)
   (if (null lst)
       nil
       (if (funcall fn (car lst))
           (our-remove-if fn (cdr lst))
           (cons (car lst) (our-remove-if fn (cdr lst))))))
-
-
-```
-## 2.4 Functions as Properties
-
-``` lisp
-(defun behave (animal)
-  (case animal
-    (dog (wag-tail)
-      (bark))
-    (rat (scurry)
-      (squeak))
-    (cat (rub-legs)
-      (scratch-carpet))))
-(defun behave (animal)
-(funcall (get animal 'behavior)))
-
-
-(setf (get ’dog ’behavior)
-      #’(lambda ()
-          (wag-tail)
-          (bark)))
 ```
 
-## 2.5 Scope
+## 2.4 속성으로서의 함수
+
+패스
+
+## 2.5 범위(Scope)
+
+| scope-test함수에서 |     |                              |
+| ------------------ | --- | ---------------------------- |
+| binding            | x   | 매개변수 x와 바인딩되어있다. |
+| free variable      | y   | 스코프 환경에 따라 다르게됨  |
+
+| 스코프            |                                            | y 의 값 |
+| ----------------- | ------------------------------------------ | ------- |
+| 다이나믹(dynamic) | 함수의 호출 체인을 거슬러 올라감           | 5       |
+| 렉시컬(lexical)   | 함수가 정의 된 시점의 환경을 거슬러 올라감 | 7       |
 
 ``` lisp
 (let ((y 7))
   (defun scope-test (x)
     (list x y)))
 
-> (let ((y 5))
-    (scope-test 3))
-(3 5)
+;; 다이나믹 스코프
+;; - y의 값: 함수 호출을 감싼 let으로 정의한 5.
+(let ((y 5))
+  (scope-test 3))
+;;=> (3 5)
 
-> (let ((y 5))
-    (scope-test 3))
-(3 7)
+;; 렉시컬 스코프 - Common Lisp 기본 설정
+;; - y의 값: 앞서 defun시 감싼 let으로 정의한 7.
+(let ((y 5))
+  (scope-test 3))
+;;=> (3 7)
 ```
 
-## 2.6 Closures
+## 2.6 클로져(Closures)
+
+함수에서 binding되지 않는 변수, 즉 free 변수가 있을 때, 그 변수를 포함하는 함수를 클로져라고 한다.
 
 ``` lisp
 (defun list+ (lst n)
   (mapcar #’(lambda (x) (+ x n))
           lst))
 
-> (list+ ’(1 2 3) 10)
-(11 12 13)
+(list+ ’(1 2 3) 10)
+;;=> (11 12 13)
+```
 
+``` lisp
 (let ((counter 0))
   (defun new-id () (incf counter))
   (defun reset-id () (setq counter 0)))
@@ -148,42 +200,35 @@ T
 (defun make-adder (n)
   #’(lambda (x) (+ x n)))
 
+(setq add2 (make-adder 2)
+      add10 (make-adder 10))
 
-> (setq add2 (make-adder 2)
-        add10 (make-adder 10))
-#<Interpreted-Function BF162E>
-> (funcall add2 5)
-7
-> (funcall add10 3)
-13
+(funcall add2 5)
+;;=> 7
+(funcall add10 3)
+;;=> 13
+```
 
-
+``` lisp
 (defun make-adderb (n)
   #’(lambda (x &optional change)
        (if change
            (setq n x)
            (+ x n))))
 
-> (setq addx (make-adderb 1))
-#<Interpreted-Function BF1C66>
-> (funcall addx 3)
-4
+(setq addx (make-adderb 1))
 
-> (funcall addx 100 t)
-100
-> (funcall addx 3)
-103
+(funcall addx 3)
+;;=> 4
 
+(funcall addx 100 t)
+;;=> 100
 
-> (setq cities (make-dbms ’((boston . us) (paris . france))))
-(#<Interpreted-Function 8022E7>
-#<Interpreted-Function 802317>
-#<Interpreted-Function 802347>)
+(funcall addx 3)
+;;=> 103
 ```
 
 ``` lisp
-Figure 2.1: Three closures share a list.
-
 (defun make-dbms (db)
   (list
     #’(lambda (key)
@@ -194,74 +239,50 @@ Figure 2.1: Three closures share a list.
     #’(lambda (key)
         (setf db (delete key db :key #’car))
         key)))
-```
 
+(setq cities (make-dbms ’((boston . us) (paris . france))))
 
-``` lisp
-> (funcall (car cities) ’boston)
-US
-> (funcall (second cities) ’london ’england)
-LONDON
-> (funcall (car cities) ’london)
-ENGLAND
+(funcall (car cities) ’boston)
+;;=> US
+
+(funcall (second cities) ’london ’england)
+;;=> LONDON
+
+(funcall (car cities) ’london)
+;;=> ENGLAND
 
 (defun lookup (key db)
   (funcall (car db) key))
-
 ```
 
+## 2.7 지역 함수
 
-## 2.7 Local Functions
+`labels` 사용법
 ``` lisp
-> (mapcar #’(lambda (x) (+ 2 x)) ’(2 5 7 3))
-(4 7 9 5)
+(labels ((inc (x) (1+ x)))
+  (inc 3))
+;;=> 4
 ```
 
-> (mapcar #’copy-tree ’((a b) (c d e)))
-((A B) (C D E))
-
-(defun list+ (lst n)
-(mapcar #’(lambda (x) (+ x n))
-lst))
-
-> (labels ((inc (x) (1+ x)))
-(inc 3))
-4
-
-(let ((x 10) (y x))
-y)
-
-(defun count-instances (obj lsts)
-(labels ((instances-in (lst)
-(if (consp lst)
-(+ (if (eq (car lst) obj) 1 0)
-(instances-in (cdr lst)))
-0)))
-(mapcar #’instances-in lsts)))
-
-> (count-instances ’a ’((a b c) (d a r p a) (d a r) (a a)))
-(1 2 1 2)
-
-
-## 2.8 Tail-Recursion
+## 2.8 꼬리재귀(Tail-Recursion)
 
 
 ``` lisp
 (defun our-length (lst)
-(if (null lst)
-0
-(1+ (our-length (cdr lst)))))
+  (if (null lst)
+    0
+    (1+ (our-length (cdr lst)))))
 ```
 
 ``` lisp
 (defun our-find-if (fn lst)
-(if (funcall fn (car lst))
-(car lst)
-(our-find-if fn (cdr lst))))
+  (if (funcall fn (car lst))
+    (car lst)
+    (our-find-if fn (cdr lst))))
 
 
 (defun our-length (lst)
-(labels ((rec (lst acc)
+  (labels ((rec (lst acc)
 (if (null lst)
 acc
 (rec (cdr lst) (1+ acc)))))
@@ -279,52 +300,54 @@ acc
   (tri 0 n)))
 ```
 
-## 2.9 Compilation
+## 2.9 컴파일
 
 ``` lisp
-> (defun foo (x) (1+ x))
-FOO
+(defun foo (x)
+  (1+ x))
+;;=> FOO
 
-> (compiled-function-p #’foo)
-NIL
+(compiled-function-p #’foo)
+;;=> NIL
 
-> (compile ’foo)
-FOO
+(compile ’foo)
+;;=> FOO
 
-> (compiled-function-p #’foo)
-T
-> (compile nil ’(lambda (x) (+ x 2)))
-#<Compiled-Function BF55BE>
+(compiled-function-p #’foo)
+;;=> T
 
-
-> (progn (compile ’bar ’(lambda (x) (* x 3)))
-(compiled-function-p #’bar))
-T
+(compile nil ’(lambda (x) (+ x 2)))
+;;=> #<Compiled-Function BF55BE>
 
 
-> (let ((y 2))
-(defun foo (x) (+ x y)))
+(progn
+  (compile ’bar ’(lambda (x) (* x 3)))
+  (compiled-function-p #’bar))
+;;=> T
 
-> (compile ’make-adder)
-MAKE-ADDER
-> (compiled-function-p (make-adder 2))
-T
+
+(let ((y 2))
+  (defun foo (x) (+ x y)))
+
+(compile ’make-adder)
+;;=> MAKE-ADDER
+(compiled-function-p (make-adder 2))
+;;=> T
 
 (defun 50th (lst) (nth 49 lst))
 
 (proclaim ’(inline 50th))
 
+(defun foo (lst)
+  (+ (50th lst) 1))
 
 (defun foo (lst)
-(+ (50th lst) 1))
-
-(defun foo (lst)
-(+ (nth 49 lst) 1))
-
-
+  (+ (nth 49 lst) 1))
 ```
+
 ## 2.10 Functions from Lists
 
+패스
 
 ## 짚고 넘어가기
 
@@ -334,10 +357,14 @@ T
 - symbol-value
 - symbol-function
 - lisp1 / lisp2
-- setq
+- [setq](https://www.lispworks.com/documentation/lw50/CLHS/Body/s_setq.htm)
 - mapcar
 - funcall
 - labels
 - let
+- case
 - proclaim
 - optimize
+- compiled-function-p
+- compile
+- progn
