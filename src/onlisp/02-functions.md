@@ -147,7 +147,72 @@
 
 ## 2.4 속성으로서의 함수
 
-패스
+
+``` lisp
+(defun behave (animal)
+  (case animal
+    (dog
+     (wag-tail)
+     (bark))
+    (rat
+     (scurry)
+     (squeak))
+    (cat
+     (rub-legs)
+     (scratch-carpet))
+    (human
+     (speak))))
+
+(defun wag-tail () (print "wag-tail"))
+(defun bark () (print "bark"))
+(defun scurry () (print "scurry"))
+(defun squeak () (print "squeak"))
+(defun rub-legs () (print "rub-legs"))
+(defun scratch-carpet () (print "scratch-carpet"))
+(defun speak () (print "speak"))
+
+(behave 'dog)
+;;>> "wag-tail"
+;;>> "bark"
+
+(behave 'rat)
+;;>> "scurry"
+;;>> "squeak"
+
+(behave 'cat)
+;;>> "rub-legs"
+;;>> "scratch-carpet"
+
+(behave 'human)
+;;>> speak
+```
+
+``` lisp
+(defun behave2 (animal)
+  (funcall (get animal 'behavior)))
+
+(setf (get 'dog 'behavior)
+      #'(lambda ()
+          (wag-tail)
+          (bark)))
+
+(behave2 'dog)
+;;>> "wag-tail"
+;;>> "bark"
+
+(setf (get 'all 'behavior)
+      #'(lambda ()
+          (bark)
+          (scurry)
+          (scratch-carpet)))
+
+(behave2 'all)
+;;>> "bark"
+;;>> "scurry"
+;;>> "scratch-carpet"
+
+```
+
 
 ## 2.5 범위(Scope)
 
