@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1052.3622"
+   height="744.09448"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.1 r9760"
+   version="1.0"
+   sodipodi:docname="fig23_6.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="EmptyTriangleOutL"
+       style="overflow:visible">
+      <path
+         id="path3961"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;fill:#FFFFFF;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.8) translate(-6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path3197"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3179"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.74469425"
+     inkscape:cx="407.21076"
+     inkscape:cy="263.51542"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:snap-global="true"
+     inkscape:object-paths="false"
+     inkscape:object-nodes="false"
+     inkscape:window-width="1381"
+     inkscape:window-height="795"
+     inkscape:window-x="40"
+     inkscape:window-y="40"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2383"
+       visible="true"
+       enabled="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2976"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Courier New;font-style:normal;font-weight:normal;font-size:40px;-inkscape-font-specification:Courier New;font-stretch:normal;font-variant:normal"><flowRegion
+         id="flowRegion2978"><rect
+           id="rect2980"
+           width="213.95129"
+           height="155.73325"
+           x="23.772366"
+           y="72.161293" /></flowRegion><flowPara
+         id="flowPara2982" /></flowRoot>    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3270"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="70"
+       sodipodi:ry="30.000002"
+       d="m 290,74.094482 a 70,30.000002 0 1 1 -140,0 70,30.000002 0 1 1 140,0 z"
+       transform="translate(-114,-19.999998)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="96"
+       y="60.094486"
+       id="text3272"><tspan
+         sodipodi:role="line"
+         id="tspan3274"
+         x="96"
+         y="60.094486"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">s</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3276"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(102,59.999998)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="272.30576"
+       y="141.66656"
+       id="text3278"><tspan
+         sodipodi:role="line"
+         id="tspan3280"
+         x="272.30576"
+         y="141.66656"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">s/subj</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 2;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3282"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(536,-19.999998)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="720"
+       y="64.09449"
+       id="text3284"><tspan
+         sodipodi:role="line"
+         id="tspan3286"
+         x="720"
+         y="64.09449"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">s/obj</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 2;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3288"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="70"
+       sodipodi:ry="30.000002"
+       d="m 290,74.094482 a 70,30.000002 0 1 1 -140,0 70,30.000002 0 1 1 140,0 z"
+       transform="translate(324.89923,-18.387957)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="536"
+       y="64.094482"
+       id="text3290"><tspan
+         sodipodi:role="line"
+         id="tspan3292"
+         x="536"
+         y="64.094482"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">v</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="418"
+       y="120.09448"
+       id="text3296"><tspan
+         sodipodi:role="line"
+         x="418"
+         y="120.09448"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan3300">verb</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="296"
+       y="40.094482"
+       id="text3304"><tspan
+         sodipodi:role="line"
+         x="296"
+         y="40.094482"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan3306">verb</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 176,54.094482 295,0"
+       id="path3308"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 160,73.094482 88,51.999998"
+       id="path3312"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="M 381,117.09448 486,77.094484"
+       id="path3314"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 616,54.094482 65,0"
+       id="path3318"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3391"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Courier New;font-style:normal;font-weight:normal;font-size:40px;-inkscape-font-specification:Courier New;font-stretch:normal;font-variant:normal"><flowRegion
+         id="flowRegion3393"><rect
+           id="rect3395"
+           width="829.97198"
+           height="192.20404"
+           x="-264.28055"
+           y="91.037575" /></flowRegion><flowPara
+         id="flowPara3397" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="171.85011"
+       y="113.44445"
+       id="text3926"><tspan
+         sodipodi:role="line"
+         x="171.85011"
+         y="113.44445"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan3928">np</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="638"
+       y="40.094482"
+       id="text3930"><tspan
+         sodipodi:role="line"
+         x="638"
+         y="40.094482"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan3932">np</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3934"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="70"
+       sodipodi:ry="30.000002"
+       d="m 290,74.094482 a 70,30.000002 0 1 1 -140,0 70,30.000002 0 1 1 140,0 z"
+       transform="translate(-114.21031,274.88702)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="85.789673"
+       y="354.98151"
+       id="text3936"><tspan
+         sodipodi:role="line"
+         id="tspan3938"
+         x="85.789673"
+         y="354.98151"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">np</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3940"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(101.78969,354.88701)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="272.09546"
+       y="436.55359"
+       id="text3942"><tspan
+         sodipodi:role="line"
+         id="tspan3944"
+         x="272.09546"
+         y="436.55359"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">np/det</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 2;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3946"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(535.78969,274.88702)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="719.78967"
+       y="358.98151"
+       id="text3948"><tspan
+         sodipodi:role="line"
+         id="tspan3950"
+         x="719.78967"
+         y="358.98151"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">np/n</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 2;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3952"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="70"
+       sodipodi:ry="30.000002"
+       d="m 290,74.094482 a 70,30.000002 0 1 1 -140,0 70,30.000002 0 1 1 140,0 z"
+       transform="translate(102,190)" />
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="478"
+       y="356.09448"
+       id="text3954"><tspan
+         sodipodi:role="line"
+         id="tspan3956"
+         x="478"
+         y="356.09448"
+         style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">np/mods</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="415.78967"
+       y="412.98151"
+       id="text3958"><tspan
+         sodipodi:role="line"
+         x="415.78967"
+         y="412.98151"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan3960">mods</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 159.78969,367.9815 88,51.99999"
+       id="path3968"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 380.78969,411.98149 105,-39.99999"
+       id="path3970"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 615.78969,348.9815 65,0"
+       id="path3972"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="95.639771"
+       y="408.33145"
+       id="text3974"><tspan
+         sodipodi:role="line"
+         x="95.639771"
+         y="408.33145"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan3976">determiner</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="623.78967"
+       y="334.98151"
+       id="text3978"><tspan
+         sodipodi:role="line"
+         x="623.78967"
+         y="334.98151"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan3980">noun</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 2;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3982"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(747.37912,274.72809)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="923.37909"
+       y="358.82257"
+       id="text3984"><tspan
+         sodipodi:role="line"
+         id="tspan3986"
+         x="923.37909"
+         y="358.82257"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">np/pp</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 827.37912,348.82257 65,0"
+       id="path3988"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="847.37909"
+       y="334.82257"
+       id="text3990"><tspan
+         sodipodi:role="line"
+         x="847.37909"
+         y="334.82257"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan3992">pp</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path3994"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(324.30575,276)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="287.90814"
+       y="272.00806"
+       id="text3996"><tspan
+         sodipodi:role="line"
+         id="tspan3998"
+         x="287.90814"
+         y="272.00806"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">pron</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 161,330.09448 90,-56"
+       id="path4000"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="122"
+       y="302.09448"
+       id="text4002"><tspan
+         sodipodi:role="line"
+         x="122"
+         y="302.09448"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan4004">pronoun</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path4066"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(102.91313,489.87851)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="262.91312"
+       y="571.97302"
+       id="text4068"><tspan
+         sodipodi:role="line"
+         id="tspan4070"
+         x="262.91312"
+         y="571.97302"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">pp/prep</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="88.913116"
+       y="571.97302"
+       id="text4072"><tspan
+         sodipodi:role="line"
+         id="tspan4074"
+         x="88.913116"
+         y="571.97302"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">pp</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 181,564.09448 66.91313,-0.12149"
+       id="path4076"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="190.91312"
+       y="549.97302"
+       id="text4078"><tspan
+         sodipodi:role="line"
+         x="190.91312"
+         y="549.97302"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan4080">prep</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 2;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path4082"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(322.50256,489.71958)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="500.50253"
+       y="571.81409"
+       id="text4084"><tspan
+         sodipodi:role="line"
+         id="tspan4086"
+         x="500.50253"
+         y="571.81409"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">pp/np</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="M 394.50256,563.81406 467,564.09448"
+       id="path4088"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="422.50253"
+       y="549.81409"
+       id="text4090"><tspan
+         sodipodi:role="line"
+         x="422.50253"
+         y="549.81409"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan4092">np</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path4094"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(-110.57081,490.99149)" />
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 2;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path4096"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(102.3067,625.27403)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="264.30667"
+       y="709.36853"
+       id="text4098"><tspan
+         sodipodi:role="line"
+         id="tspan4100"
+         x="264.30667"
+         y="709.36853"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">mods/n</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="66.306702"
+       y="709.36853"
+       id="text4102"><tspan
+         sodipodi:role="line"
+         id="tspan4104"
+         x="66.306702"
+         y="709.36853"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">mods</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 181,699.09448 66.3067,0.27403"
+       id="path4106"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="190.30669"
+       y="685.36853"
+       id="text4108"><tspan
+         sodipodi:role="line"
+         x="190.30669"
+         y="685.36853"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan4110">noun</tspan></text>
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Lend);font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       d="m 380,681.09448 c 105,-25 110,51 5,36"
+       id="path4118"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="465"
+       y="697.09448"
+       id="text4120"><tspan
+         sodipodi:role="line"
+         x="465"
+         y="697.09448"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+         id="tspan4122">noun</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.98000004;fill:none;stroke:#010000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       id="path4124"
+       sodipodi:cx="220"
+       sodipodi:cy="74.094482"
+       sodipodi:rx="71.694252"
+       sodipodi:ry="30.000002"
+       d="m 291.69425,74.094482 a 71.694252,30.000002 0 1 1 -143.3885,0 71.694252,30.000002 0 1 1 143.3885,0 z"
+       transform="translate(-111.17725,626.38701)" />
+    <rect
+       style="opacity:0.98000004;fill:none;stroke:none"
+       id="rect2448"
+       width="1040"
+       height="740"
+       x="16"
+       y="4.0944824" />
+  </g>
+</svg>
