@@ -259,8 +259,10 @@
 
 ``` lisp
 (let ((counter 0))
-  (defun new-id () (incf counter))
-  (defun reset-id () (setq counter 0)))
+  (defun new-id ()
+    (incf counter))
+  (defun reset-id ()
+    (setq counter 0)))
 
 (defun make-adder (n)
   #’(lambda (x) (+ x n)))
@@ -329,49 +331,68 @@
 ;;=> 4
 ```
 
-## 2.8 꼬리재귀(Tail-Recursion)
+## 2.8 꼬리 재귀(Tail-Recursion)
 
-
+`our-length`함수의 끝이 `our-length`으로 끝나는게 아니라 `1+`가 감싸는 형태로 되어있다. 이와 같은 형태는 꼬리 재귀 형태가 될 수 없다.
 ``` lisp
 (defun our-length (lst)
   (if (null lst)
-    0
-    (1+ (our-length (cdr lst)))))
+      0
+      (1+ (our-length (cdr lst)))))
 ```
+
+
+`our-find-if`는 `our-find-if`로 끝나는 꼬리 재귀 형태이다.
 
 ``` lisp
 (defun our-find-if (fn lst)
   (if (funcall fn (car lst))
-    (car lst)
-    (our-find-if fn (cdr lst))))
+      (car lst)
+      (our-find-if fn (cdr lst))))
+```
 
+`our-length`는 `labels`를 이용하여 내부에 꼬리 재귀 형태의 `rec` 함수를 정의하였다.
 
+``` lisp
 (defun our-length (lst)
   (labels ((rec (lst acc)
-(if (null lst)
-acc
-(rec (cdr lst) (1+ acc)))))
-(rec lst 0)))
+             (if (null lst)
+                 acc
+                 (rec (cdr lst) (1+ acc)))))
+    (rec lst 0)))
+```
 
-(proclaim ’(optimize speed))
+``` lisp
+;; Common Lisp에서 꼬리 재귀 최적화를 디폴트가 아닌 경우, 다음과 같이 추가 선언이 필요하다.
+(proclaim '(optimize speed))
+```
+
+``` lisp
+;; 속도 향상을 위한 꼬리 재귀 + 타입 선언 예제.
+;; 1 ~ n 까지의 합을 구하는 함수.
 
 (defun triangle (n)
   (labels ((tri (c n)
-  (declare (type fixnum n c))
-  (if (zerop n)
-  c
-  (tri (the fixnum (+ n c))
-  (the fixnum (- n 1))))))
-  (tri 0 n)))
+             (declare (type fixnum n c))
+             (if (zerop n)
+                 c
+                 (tri (the fixnum (+ n c))
+                      (the fixnum (- n 1))))))
+    (tri 0 n)))
 ```
 
 ## 2.9 컴파일
+
+- `compile`함수 사용하여, 함수를 컴파일
+- `compile-file`함수 사용하여, 파일을 컴파일
 
 ``` lisp
 (defun foo (x)
   (1+ x))
 ;;=> FOO
 
+
+;; 컴파일 됐는지 여부 확인
 (compiled-function-p #’foo)
 ;;=> NIL
 
@@ -381,33 +402,36 @@ acc
 (compiled-function-p #’foo)
 ;;=> T
 
-(compile nil ’(lambda (x) (+ x 2)))
+;; 익명함수 컴파일
+(compile nil '(lambda (x) (+ x 2)))
 ;;=> #<Compiled-Function BF55BE>
 
-
+;; 익명함수에 이름을 붙여 컴파일
 (progn
-  (compile ’bar ’(lambda (x) (* x 3)))
+  (compile 'bar '(lambda (x) (* x 3)))
   (compiled-function-p #’bar))
 ;;=> T
 
 
+;; 렉시컬 환경에서는 컴파일이 안된다.
 (let ((y 2))
-  (defun foo (x) (+ x y)))
+  (defun foo (x)
+    (+ x y)))
 
-(compile ’make-adder)
+;; 함수를 리턴하는 함수를 컴파일하면, 리턴되는 함수도 컴파일이 되는걸 확인 할 수 있다.
+(compile 'make-adder)
 ;;=> MAKE-ADDER
 (compiled-function-p (make-adder 2))
 ;;=> T
 
-(defun 50th (lst) (nth 49 lst))
-
-(proclaim ’(inline 50th))
-
-(defun foo (lst)
-  (+ (50th lst) 1))
+;; 인라인 함수의 예제
+(proclaim '(inline 50th))
+(defun 50th (lst)
+  (nth 49 lst))
 
 (defun foo (lst)
-  (+ (nth 49 lst) 1))
+  (+ (50th lst) 1) ;; => (+ (nth 49 lst) 1)
+  )
 ```
 
 ## 2.10 Functions from Lists
@@ -428,8 +452,12 @@ acc
 - labels
 - let
 - case
+- declare
+  - type
 - proclaim
+  - inline
 - optimize
 - compiled-function-p
 - compile
+- copmile-file
 - progn

@@ -1,16 +1,16 @@
 # 04. 유틸리티 함수
 
 - 오퍼레이터 종류
-  - function
-  - macro
-  - special form (유저가 만들 수 없다)
+  - 함수(function)
+  - 매크로(macro)
+  - 스페셜 폼(special form)
+    - 단, 스페셜 폼은 유저가 만들 수 없다.
 
 ## 4.1. 유틸리티의 탄생
 
 - 유틸리티: 프로그램을 쉽게 쓸 수 있게 해주는 연산자.
   - "유틸리티"라는 단어에 정확한 정의가 없음.
-  - 어플리케이션이라고 하기엔 작고
-  - 일부분이라고 하기에는 너무 범용적인 경우 "유틸리티"라 한다.
+  - 어플리케이션이라고 하기엔 작고, 일부분이라고 하기에는 너무 범용적인 경우 "유틸리티"라 칭함.
 
 ``` lisp
 (defun nicknames (name)
@@ -21,12 +21,14 @@
 
 (setq names '("park" "jane" "june"))
 
+;; all-nicknames 함수를 만들어도 되지만
 (defun all-nicknames (names)
   (if (null names)
       nil
-   (nconc (nicknames (car names))
-          (all-nicknames (cdr names)))))
+      (nconc (nicknames (car names))
+             (all-nicknames (cdr names)))))
   
+;; mapcan을 알고 있다면, all-nicknames 함수를 만들 필요가 없다.
 (mapcan #'nicknames names)
 ;;=> (NICK "foo-park" NICK "foo-jane" NICK "foo-june")
 
@@ -74,13 +76,15 @@
 - 유틸리티
   - 유틸리티는 당면한 문제뿐만 아니라 일반적인 상황에 대해 작성해야 한다.
   - 서둘러 작성해서는 안 된다.
-  - 나중에 필요할지 확실하지 않을 때는, 일단 작성한다.
+  - 나중에 필요할지 확실하지 않을 때는, 일단 작성해 본다.
   - 단, 아직은 유틸리티가 아닌 서브 루틴 신분이다.(해당 프로그램에서만 사용)
   - 다른 프로그램에서 그 서브 루틴을 사용할 일이 생기면, 유틸리티로 승격시켜 널리 사용할 수 있도록 한다.
 
 ## 4.3. 리스트에 대한 연산
 
 리스프(Lisp)의 이름은 `LIS`t `P`rocessing에서 따왔다.
+
+`longer`함수의 예:
 
 ``` lisp
 (defun longer (x y)
@@ -92,19 +96,22 @@
         (compare x y)
         (> (length x) (length y)))))
 
-(longer '(1 2) '(3 4 5))
+(longer '(1 2 3) '(4 5))
 ;;=> T
 
-(longer '(1 2 3) '(4 5))
-;;=> nil
+(longer '(1 2) '(3 4 5))
+;;=> NIL
 ```
+
+`filter`함수의 예:
 
 ``` lisp
 (defun filter (fn lst)
   (let ((acc nil))
     (dolist (x lst)
       (let ((val (funcall fn x)))
-        (if val (push val acc))))
+        (if val
+            (push val acc))))
     (nreverse acc)))
 
 (filter #'evenp '(1 2 3 4 5))
@@ -114,6 +121,8 @@
         '(a 1 2 b 3 c d 4))
 ;;=> (2 3 4 5)
 ```
+
+`group`함수의 예:
 
 ``` lisp
 (defun group (source n)
@@ -132,6 +141,8 @@
 ;;=> ((A B) (C D) (E F) (G))
 ```
 
+`flatten`함수의 예:
+
 ``` lisp
 (defun flatten (x)
   (labels ((rec (x acc)
@@ -143,6 +154,8 @@
 (flatten '(a (b c) ((d e) f)))
 ;;=> (A B C D E F)
 ```
+
+`prune`함수의 예:
 
 ``` lisp
 (defun prune (test tree)
@@ -162,6 +175,7 @@
 (prune #'evenp '(1 2 (3 (4 5) 6) 7 8 (9)))
 ;;=> (1 (3 (5)) 7 (9))
 ```
+
 ## 4.4. 검색
 
 ``` lisp
@@ -289,9 +303,9 @@
 (defun map1-n (fn n)
   (mapa-b fn 1 n))
 
-"(mapa-b #'1+ -2 0 .5)
+(mapa-b #'1+ -2 0 .5)
 ;;=> (-1 -0.5 0.0 0.5 1.0)
-"
+
 
 (defun mapa-b (fn a b &optional (step 1))
   (do ((i a (+ i step))
@@ -315,22 +329,22 @@
         (push (funcall fn obj) result)))
     (nreverse result)))
 
-(defun rmapcar (fn &rest args)
+(defun recur-mapcar (fn &rest args)
   (if (some #'atom args)
       (apply fn args)
       (apply #'mapcar
              #'(lambda (&rest args)
-                 (apply #'rmapcar fn args))
+                 (apply #'recur-mapcar fn args))
              args)))
 
 (defun our-mapcan (fn &rest lsts)
   (apply #'nconc (apply #'mapcar fn lsts)))
 
-(rmapcar #'princ '(1 2 (3 4 (5) 6) 7 (8 9)))
+(recur-mapcar #'princ '(1 2 (3 4 (5) 6) 7 (8 9)))
 ;;>> 123456789
 ;;=> (1 2 (3 4 (5) 6) 7 (8 9))
 
-(rmapcar #'+ '(1 (2 (3) 4)) '(10 (20 (30) 40)))
+(recur-mapcar #'+ '(1 (2 (3) 4)) '(10 (20 (30) 40)))
 ;;=> (11 (22 (33) 44))
 ```
 
@@ -421,9 +435,16 @@
 
 - 의도적으로 유틸리티를 피하는 경우가 하나 있다.
   - 나머지 코드와 독립적으로 배포할 작은 프로그램을 작성해야 하는 경우.
-  - 소규모 프로그램에서는 유틸리티를 포함할 만큼 충분히 사용되지 않을 수 있.
+    - 소규모 프로그램에서는 유틸리티로 만들만큼 충분히 사용되지 않을 수 있다.
 
 ## 짚고 넘어가기
 
 - find-if
 - [mapcan](https://www.lispworks.com/documentation/HyperSpec/Body/f_mapc_.htm)
+- push
+- zerop
+- nreverse
+- subseq
+- nthcdr
+- dolist
+- do

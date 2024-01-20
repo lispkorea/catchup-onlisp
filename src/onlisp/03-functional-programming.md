@@ -42,10 +42,8 @@
 
 (setq lst '(abc))
 ;;=> (ABC)
-
 (bad-reverse lst)
 ;;=> NIL
-
 lst
 ;;=> (CBA)
 ```
@@ -85,7 +83,7 @@ lst
 - 다른 프로그래밍 언어에서 부작용을 사용하는 가장 큰 이유는 다중 값을 반환하는 함수가 필요하다는 것.
   - 언어에서 하나의 값만 반환 할 수 있으면, 다중 값을 반환하기 위해 매개 변수를 활용하여 반환함.
     - ex) c#에서 out 파라미터
-  - 다행히 Common Lisp에서는 `values`를 이용, 다중 값을 반환할 수 있음.
+  - 다행히 Common Lisp에서는 `values`를 이용, 다중 값을 반환할 수 있다.
 
 ``` lisp
 (defun powers (x)
@@ -111,7 +109,7 @@ lst
 
 ## 3.2. 명령형을 뒤집어보자
 
-`imperative-style`을 임시 변수를 없에면서 역순으로 뒤집어 구현해보면 `funcional-style`이 된다.
+`imperative-style`을 임시 변수를 없에면서 역순으로 뒤집어 구현해보면 `functional-style`이 된다.
 
 ``` lisp
 (defun imperative-style (x)
@@ -121,8 +119,11 @@ lst
     (setq sqr (expt y 2))
     (list 'a sqr)))
 
-(defun funtional-style (x)
+(defun functional-style (x)
   (list 'a (expt (car x) 2)))
+
+(functional-style '(3))
+;;=> (A 9)
 ```
 
 ## 3.3. 함수형 인터페이스
@@ -174,4 +175,4 @@ lst
 - values
 - multiple-value-bind
 - expt
-- nconc
+- [nconc](http://www.lispworks.com/documentation/HyperSpec/Body/f_nconc.htm)
