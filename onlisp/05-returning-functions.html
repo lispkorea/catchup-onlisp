@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>05. Returning Functions - catchup-onlisp</title>
+        <title>05. 함수를 반환하기 - catchup-onlisp</title>
 
 
         <!-- Custom HTML head -->
@@ -87,7 +87,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../Index.html">들어가면서</a></li><li class="chapter-item expanded affix "><li class="part-title">On Lisp</li><li class="chapter-item expanded "><a href="../onlisp/01-extensible-language.html">01. 확장 가능한 언어</a></li><li class="chapter-item expanded "><a href="../onlisp/02-functions.html">02. 함수</a></li><li class="chapter-item expanded "><a href="../onlisp/03-functional-programming.html">03. 함수형 프로그래밍</a></li><li class="chapter-item expanded "><a href="../onlisp/04-utility-functions.html">04. 유틸리티 함수</a></li><li class="chapter-item expanded "><a href="../onlisp/05-returning-functions.html" class="active">05. Returning Functions</a></li><li class="chapter-item expanded "><a href="../onlisp/06-functions-as-representation.html">06. Functions as Representation</a></li><li class="chapter-item expanded "><a href="../onlisp/07-macros.html">07. Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/08-when-to-use-macros.html">08. When to Use Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/09-variable-capture.html">09. Variable Capture</a></li><li class="chapter-item expanded "><a href="../onlisp/10-other-macro-pitfalls.html">10. Other Macro Pitfalls</a></li><li class="chapter-item expanded "><a href="../onlisp/11-classic-macros.html">11. Classic Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/12-generalized-variables.html">12. Generalized Variables</a></li><li class="chapter-item expanded "><a href="../onlisp/13-computation-at-compile-time.html">13. Computation at Compile-Time</a></li><li class="chapter-item expanded "><a href="../onlisp/14-anaphoric-macros.html">14. Anaphoric Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/15-macros-returning-functions.html">15. Macros Returning Functions</a></li><li class="chapter-item expanded "><a href="../onlisp/16-macro-defining-macros.html">16. Macro-Defining Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/17-read-macros.html">17. Read-Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/18-destructuring.html">18. Destructuring</a></li><li class="chapter-item expanded "><a href="../onlisp/19-a-query-compiler.html">19. A Query Compiler</a></li><li class="chapter-item expanded "><a href="../onlisp/20-continuations.html">20. Continuations</a></li><li class="chapter-item expanded "><a href="../onlisp/21-multiple-processes.html">21. Multiple Processes</a></li><li class="chapter-item expanded "><a href="../onlisp/22-nondeterminism.html">22. Nondeterminism</a></li><li class="chapter-item expanded "><a href="../onlisp/23-parsing-with-atns.html">23. Parsing with ATNs</a></li><li class="chapter-item expanded "><a href="../onlisp/24-prolog.html">24. Prolog</a></li><li class="chapter-item expanded "><a href="../onlisp/25-object-oriented-lisp.html">25. Object-Oriented Lisp</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../Index.html">들어가면서</a></li><li class="chapter-item expanded affix "><li class="part-title">On Lisp</li><li class="chapter-item expanded "><a href="../onlisp/01-extensible-language.html">01. 확장 가능한 언어</a></li><li class="chapter-item expanded "><a href="../onlisp/02-functions.html">02. 함수</a></li><li class="chapter-item expanded "><a href="../onlisp/03-functional-programming.html">03. 함수형 프로그래밍</a></li><li class="chapter-item expanded "><a href="../onlisp/04-utility-functions.html">04. 유틸리티 함수</a></li><li class="chapter-item expanded "><a href="../onlisp/05-returning-functions.html" class="active">05. 함수를 반환하기</a></li><li class="chapter-item expanded "><a href="../onlisp/06-functions-as-representation.html">06. Functions as Representation</a></li><li class="chapter-item expanded "><a href="../onlisp/07-macros.html">07. Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/08-when-to-use-macros.html">08. When to Use Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/09-variable-capture.html">09. Variable Capture</a></li><li class="chapter-item expanded "><a href="../onlisp/10-other-macro-pitfalls.html">10. Other Macro Pitfalls</a></li><li class="chapter-item expanded "><a href="../onlisp/11-classic-macros.html">11. Classic Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/12-generalized-variables.html">12. Generalized Variables</a></li><li class="chapter-item expanded "><a href="../onlisp/13-computation-at-compile-time.html">13. Computation at Compile-Time</a></li><li class="chapter-item expanded "><a href="../onlisp/14-anaphoric-macros.html">14. Anaphoric Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/15-macros-returning-functions.html">15. Macros Returning Functions</a></li><li class="chapter-item expanded "><a href="../onlisp/16-macro-defining-macros.html">16. Macro-Defining Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/17-read-macros.html">17. Read-Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/18-destructuring.html">18. Destructuring</a></li><li class="chapter-item expanded "><a href="../onlisp/19-a-query-compiler.html">19. A Query Compiler</a></li><li class="chapter-item expanded "><a href="../onlisp/20-continuations.html">20. Continuations</a></li><li class="chapter-item expanded "><a href="../onlisp/21-multiple-processes.html">21. Multiple Processes</a></li><li class="chapter-item expanded "><a href="../onlisp/22-nondeterminism.html">22. Nondeterminism</a></li><li class="chapter-item expanded "><a href="../onlisp/23-parsing-with-atns.html">23. Parsing with ATNs</a></li><li class="chapter-item expanded "><a href="../onlisp/24-prolog.html">24. Prolog</a></li><li class="chapter-item expanded "><a href="../onlisp/25-object-oriented-lisp.html">25. Object-Oriented Lisp</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -178,15 +178,284 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="05-returning-functions"><a class="header" href="#05-returning-functions">05. Returning Functions</a></h1>
-<h2 id="51-common-lisp-evolves"><a class="header" href="#51-common-lisp-evolves">5.1. Common Lisp Evolves</a></h2>
-<h2 id="52-orthogonality"><a class="header" href="#52-orthogonality">5.2. Orthogonality</a></h2>
-<h2 id="53-memoizing"><a class="header" href="#53-memoizing">5.3. Memoizing</a></h2>
-<h2 id="54-composing-functions"><a class="header" href="#54-composing-functions">5.4. Composing Functions</a></h2>
-<h2 id="55-recursion-on-cdrs"><a class="header" href="#55-recursion-on-cdrs">5.5. Recursion on Cdrs</a></h2>
-<h2 id="56-recursion-on-subtrees"><a class="header" href="#56-recursion-on-subtrees">5.6. Recursion on Subtrees</a></h2>
-<h2 id="57-when-to-build-functions"><a class="header" href="#57-when-to-build-functions">5.7. When to Build Functions</a></h2>
+                        <h1 id="05-함수를-반환하기"><a class="header" href="#05-함수를-반환하기">05. 함수를 반환하기</a></h1>
+<p>새로운 함수를 생성하고 반환하는 함수를 정의함으로써, 함수를 인자로 받는 유틸리티의 효과를 증폭시킬 수 있다.</p>
+<h2 id="51-진화하는-common-lisp"><a class="header" href="#51-진화하는-common-lisp">5.1. 진화하는 Common Lisp</a></h2>
+<ul>
+<li>CLTL2에서는 <code>complement</code>라는 함수가 추가되었다.
+<ul>
+<li>함수의 여함수(Complement Function)를 반환하는 함수.</li>
+<li>초기 Common Lisp에는 <code>remove-if</code>와 <code>remove-if-not</code> 같이 쌍을 이루는 함수들이 있었다.</li>
+<li>CLTL2에 와서는 결과적으로 <code>-if-not</code>함수들이 사라지게 되었다.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lisp">(defun sample-complement (fn)
+  #'(lambda (&amp;rest args)
+      (not (apply fn args))))
+
+(remove-if (sample-complement #'oddp) '(1 2 3 4 5 6))
+;;=&gt; (1 3 5)
+</code></pre>
+<h2 id="52-직교성orthogonality"><a class="header" href="#52-직교성orthogonality">5.2. 직교성(Orthogonality)</a></h2>
+<ul>
+<li>
+<p>직교성(orthogonal)을 지닌 프로그래밍 언어는 적은 수의 오퍼레이터를 다양한 방법으로 결합시킴으로써 여러가지 의미를 표현할 수 있다.</p>
+</li>
+<li>
+<p><code>setf</code> 매크로는 리스프의 직교성을 향상시킨다.</p>
+<ul>
+<li><code>get-color</code>, <code>set-color</code>와 같은 함수들이 필요한게 아닌, <code>get</code>과 <code>setf</code>를 조합하여 동일한 효과를 얻는다.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lisp">(setf (get 'ball 'color) 'red)
+
+(symbol-plist 'ball)
+;;=&gt; (COLOR RED)
+
+(get 'ball 'color)
+;;=&gt; RED
+</code></pre>
+<p>새로운 표현만들기 <code>def!</code>와 <code>!</code>:</p>
+<pre><code class="language-lisp">(defvar *!equivs* (make-hash-table))
+
+(defun ! (fn)
+  (or (gethash fn *!equivs*) fn))
+
+(defun def! (fn fn!)
+  (setf (gethash fn *!equivs*) fn!))
+
+(def! #'remove-if #'delete-if)
+
+(delete-if #'oddp '(1 2 3 4))
+;;=&gt; (2 4)
+
+(funcall (! #'remove-if) #'oddp '(1 2 3 4))
+;;=&gt; (2 4)
+</code></pre>
+<h2 id="53-메모이징memoizing"><a class="header" href="#53-메모이징memoizing">5.3. 메모이징(Memoizing)</a></h2>
+<p>캐쉬(cache)를 만들어서, 함수의 결과를 저장해두고, 같은 인자로 호출될 때는 캐쉬에 저장된 값을 반환하는 방식.</p>
+<pre><code class="language-lisp">(defun memoize (fn)
+  (let ((cache (make-hash-table :test #'equal)))
+    #'(lambda (&amp;rest args)
+        (multiple-value-bind (val win) (gethash args cache)
+          (if win
+              val
+              (setf (gethash args cache)
+                    (apply fn args)))))))
+
+
+(setq slowid (memoize #'(lambda (x) (sleep 5) x)))
+
+
+(time (funcall slowid 1))
+;;&gt;&gt; Elapsed Time = 5.15 seconds
+;;=&gt; 1
+
+(time (funcall slowid 1))
+;;&gt;&gt; Elapsed Time = 0.00 seconds
+;;=&gt; 1
+</code></pre>
+<h2 id="54-합성-함수composing-functions"><a class="header" href="#54-합성-함수composing-functions">5.4. 합성 함수(Composing Functions)</a></h2>
+<ul>
+<li>함수 <code>f</code>의 여함수(Complement Function)는 <code>~f</code>로 표시.</li>
+</ul>
+<pre><code class="language-lisp">(funcall (complement #'evenp) 1)
+;;=&gt; T
+</code></pre>
+<ul>
+<li>함수 <code>f</code>와 <code>g</code>가 있을때 합성함수(Composing Function) <code>f(g(x))</code>는 <code>f ○ g</code>로 표시.</li>
+</ul>
+<pre><code class="language-lisp">(defun compose (&amp;rest fns)
+  (if fns
+      (let ((fn1 (car (last fns)))
+            (fns (butlast fns)))
+        #'(lambda (&amp;rest args)
+            (reduce #'funcall fns
+                    :from-end t
+                    :initial-value (apply fn1 args))))
+      #'identity))
+
+(funcall (compose #'1+ #'find-if) #'oddp '(2 3 4))
+;;=&gt; 4
+</code></pre>
+<ul>
+<li><code>fif</code>
+<ul>
+<li><code>f</code>unction <code>if</code></li>
+<li><code>if</code> 만족시 <code>then</code> 아니면 <code>else</code> 적용</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lisp">(defun fif (if then &amp;optional else)
+  #'(lambda (x)
+      (if (funcall if x)
+          (funcall then x)
+          (if else (funcall else x)))))
+
+(mapcar (fif #'oddp #'1+ #'1-)
+        '(1 2 3 4 5))
+;;=&gt; (2 1 4 3 6)
+</code></pre>
+<ul>
+<li><code>fint</code>
+<ul>
+<li><code>f</code>unction <code>int</code>ersection</li>
+<li>함수들을 모두 만족시</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lisp">(defun fint (fn &amp;rest fns)
+  (if (null fns)
+      fn
+      (let ((chain (apply #'fint fns)))
+        #'(lambda (x) 
+            (and (funcall fn x) (funcall chain x))))))
+
+(mapcar (fint #'oddp #'(lambda (x) (&gt; x 3)))
+        '(1 2 3 4 5))
+;; (NIL NIL NIL NIL T)
+</code></pre>
+<ul>
+<li><code>fun</code>
+<ul>
+<li><code>f</code>unction <code>un</code>ion</li>
+<li>함수들 중 하나라도 만족시</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lisp">(defun fun (fn &amp;rest fns)
+  (if (null fns)
+      fn
+      (let ((chain (apply #'fun fns)))
+        #'(lambda (x)
+            (or (funcall fn x) (funcall chain x))))))
+
+(mapcar (fun #'oddp #'(lambda (x) (&gt; x 3)))
+        '(1 2 3 4 5))
+;; (T NIL T T T)
+</code></pre>
+<h2 id="55-cdr을-이용한-재귀"><a class="header" href="#55-cdr을-이용한-재귀">5.5. cdr을 이용한 재귀</a></h2>
+<ul>
+<li><code>cdr</code>은 리스트의 두번째 요소부터 끝까지를 반환하는 함수.
+<ul>
+<li><code>car</code>와 <code>cdr</code>을 이용하여 전체 리스트를 순회할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lisp">(cdr '(1 2 3 4))
+;;=&gt; (2 3 4)
+</code></pre>
+<pre><code class="language-lisp">(defun our-length (lst)
+  (if (null lst)
+      0
+      (1+ (our-length (cdr lst)))))
+
+(our-length '(1 2 3))
+;;=&gt; 3
+</code></pre>
+<pre><code class="language-lisp">(defun our-every (fn lst)
+  (if (null lst)
+      t
+      (and (funcall fn (car lst))
+           (our-every fn (cdr lst)))))
+
+(our-every #'evenp '(2 4 6))
+;;=&gt; T
+</code></pre>
+<ul>
+<li>lrec
+<ul>
+<li><code>l</code>ist <code>rec</code>urser</li>
+<li>리스트에 대한 재귀를 추상화한 함수</li>
+<li>꼬리 재귀(tail recursion)를 사용하여 최적화한 버전이 아니지만, 간단히 구현해 본 것.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lisp">(defun lrec (rec &amp;optional base)
+  (labels ((self (lst)
+             (if (null lst)
+                 (if (functionp base)
+                     (funcall base)
+                     base)
+                 (funcall rec (car lst)
+                          #'(lambda ()
+                              (self (cdr lst)))))))
+    #'self))
+
+
+;; 리스트 복사
+(lrec #'(lambda (x f) (cons x (funcall f))))
+
+;; 중복 삭제
+(lrec #'(lambda (x f) (adjoin x (funcall f))))
+
+;; find-if, fn을 만족시키는 x 찾기
+(lrec #'(lambda (x f) (if (fn x) x (funcall f))))
+
+
+; some, fn을 적용시켜 거짓이 아니면 반환
+(lrec #'(lambda (x f) (or (fn x) (funcall f))))
+</code></pre>
+<h2 id="56-subtree에-대한-재귀"><a class="header" href="#56-subtree에-대한-재귀">5.6. subtree에 대한 재귀</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>표현식</th><th>cons cell</th></tr></thead><tbody>
+<tr><td>(a . b)</td><td>(a . b)</td></tr>
+<tr><td>(a b c)</td><td>(a . (b . (c . nil)))</td></tr>
+<tr><td>(a b (c d))</td><td>(a . (b . ((c . (d . nil)) . nil)))</td></tr>
+</tbody></table>
+</div>
+<p><img src="../res/fig5_7.svg" alt="" /></p>
+<p><code>our-copy-tree</code> 예제:</p>
+<pre><code class="language-lisp">(defun our-copy-tree (tree)
+  (if (atom tree)
+      tree
+      (cons (our-copy-tree (car tree))
+            (if (cdr tree) (our-copy-tree (cdr tree))))))
+
+(our-copy-tree '((a b (c d)) (e) f))
+;;=&gt; ((A B (C D)) (E) F)
+</code></pre>
+<p><code>count-leaves</code> 예제:</p>
+<pre><code class="language-lisp">(defun count-leaves (tree)
+  (if (atom tree)
+      1
+      (+ (count-leaves (car tree))
+         (or (if (cdr tree) (count-leaves (cdr tree)))
+             1))))
+
+(count-leaves '((a b (c d)) (e) f))
+;;=&gt; 10
+</code></pre>
+<p><code>our-flatten</code> 예제:</p>
+<pre><code class="language-lisp">(defun our-flatten (tree)
+  (if (atom tree)
+      (mklist tree)
+      (nconc (flatten (car tree))
+             (if (cdr tree) (our-flatten (cdr tree))))))
+
+(our-flatten '((a b (c d)) (e) f))
+;;=&gt; (A B C D E F)
+</code></pre>
+<p><code>rfind-if</code> 예제:</p>
+<pre><code class="language-lisp">(defun rfind-if (fn tree)
+  (if (atom tree)
+      (and (funcall fn tree) tree)
+      (or (rfind-if fn (car tree))
+          (if (cdr tree) (rfind-if fn (cdr tree))))))
+
+(rfind-if (fint #'numberp #'oddp) '(2 (3 4) 5))
+;;=&gt; 3
+</code></pre>
+<h2 id="57-어느-시점에-함수를-만들어야-하는가"><a class="header" href="#57-어느-시점에-함수를-만들어야-하는가">5.7. 어느 시점에 함수를 만들어야 하는가</a></h2>
+<ul>
+<li><code>#'(lambda ... )</code>는 상수 표현식이나, 함수 호출은 <code>런타임에 평가</code>된다.</li>
+<li><code>#.( ... )</code>에서의 <code>#.</code>은 리드 매크로(read macro)로 뒷따르는 <code>표현식을 읽는 시점에 평가</code>된다.</li>
+</ul>
 <h2 id="짚고-넘어가기"><a class="header" href="#짚고-넘어가기">짚고 넘어가기</a></h2>
+<ul>
+<li><a href="https://www.lispworks.com/documentation/lw51/CLHS/Body/f_get.htm">get</a></li>
+</ul>
 
                     </main>
 
