@@ -8,7 +8,7 @@
 - [02. 함수](onlisp/02-functions.md)
 - [03. 함수형 프로그래밍](onlisp/03-functional-programming.md)
 - [04. 유틸리티 함수](onlisp/04-utility-functions.md)
-- [05. Returning Functions](onlisp/05-returning-functions.md)
+- [05. 함수를 반환하기](onlisp/05-returning-functions.md)
 - [06. Functions as Representation](onlisp/06-functions-as-representation.md)
 - [07. Macros](onlisp/07-macros.md)
 - [08. When to Use Macros](onlisp/08-when-to-use-macros.md)
