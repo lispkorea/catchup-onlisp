@@ -221,7 +221,7 @@
 (lrec #'(lambda (x f) (or (fn x) (funcall f))))
 ```
 
-## 5.6. subtree에 대한 재귀
+## 5.6. 서브트리(subtree)와 재귀
 
 
 | 표현식      | cons cell                           |
@@ -294,3 +294,6 @@
 ## 짚고 넘어가기
 
 - [get](https://www.lispworks.com/documentation/lw51/CLHS/Body/f_get.htm)
+- [#.](https://www.lispworks.com/documentation/HyperSpec/Body/02_dhf.htm) 리드 매크로
+- gethash
+- make-hash-table
