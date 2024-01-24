@@ -7,6 +7,8 @@
   - [일본어](https://www.asahi-net.or.jp/~kc7k-nd/onlispjhtml/)
 
 - 이 문서는 번역본이 아닌 코드 위주로 작성된 요약본입니다.
+  - 물론, OnLisp 내용을 전체 다 읽고 이해한다면 좋을 것입니다.
+  - 다만, 시간 절약상 OnLisp를 빠르게 훝어보고 싶은, 기억을 상기시키고 싶은 분들을 위해 작성되었습니다.
 - 현재 작업중 WIP (Work In Progress) 인 문서입니다.
 
 ## 참고
