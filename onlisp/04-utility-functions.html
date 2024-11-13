@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="kr" class="light" dir="ltr">
+<html lang="kr" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="catchup-onlisp">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -29,15 +29,17 @@
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -59,19 +61,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -81,45 +80,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../Index.html">들어가면서</a></li><li class="chapter-item expanded affix "><li class="part-title">On Lisp</li><li class="chapter-item expanded "><a href="../onlisp/01-extensible-language.html">01. 확장 가능한 언어</a></li><li class="chapter-item expanded "><a href="../onlisp/02-functions.html">02. 함수</a></li><li class="chapter-item expanded "><a href="../onlisp/03-functional-programming.html">03. 함수형 프로그래밍</a></li><li class="chapter-item expanded "><a href="../onlisp/04-utility-functions.html" class="active">04. 유틸리티 함수</a></li><li class="chapter-item expanded "><a href="../onlisp/05-returning-functions.html">05. 함수를 반환하기</a></li><li class="chapter-item expanded "><a href="../onlisp/06-functions-as-representation.html">06. 표현으로서의 함수</a></li><li class="chapter-item expanded "><a href="../onlisp/07-macros.html">07. 매크로</a></li><li class="chapter-item expanded "><a href="../onlisp/08-when-to-use-macros.html">08. When to Use Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/09-variable-capture.html">09. Variable Capture</a></li><li class="chapter-item expanded "><a href="../onlisp/10-other-macro-pitfalls.html">10. Other Macro Pitfalls</a></li><li class="chapter-item expanded "><a href="../onlisp/11-classic-macros.html">11. Classic Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/12-generalized-variables.html">12. Generalized Variables</a></li><li class="chapter-item expanded "><a href="../onlisp/13-computation-at-compile-time.html">13. Computation at Compile-Time</a></li><li class="chapter-item expanded "><a href="../onlisp/14-anaphoric-macros.html">14. Anaphoric Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/15-macros-returning-functions.html">15. Macros Returning Functions</a></li><li class="chapter-item expanded "><a href="../onlisp/16-macro-defining-macros.html">16. Macro-Defining Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/17-read-macros.html">17. Read-Macros</a></li><li class="chapter-item expanded "><a href="../onlisp/18-destructuring.html">18. Destructuring</a></li><li class="chapter-item expanded "><a href="../onlisp/19-a-query-compiler.html">19. A Query Compiler</a></li><li class="chapter-item expanded "><a href="../onlisp/20-continuations.html">20. Continuations</a></li><li class="chapter-item expanded "><a href="../onlisp/21-multiple-processes.html">21. Multiple Processes</a></li><li class="chapter-item expanded "><a href="../onlisp/22-nondeterminism.html">22. Nondeterminism</a></li><li class="chapter-item expanded "><a href="../onlisp/23-parsing-with-atns.html">23. Parsing with ATNs</a></li><li class="chapter-item expanded "><a href="../onlisp/24-prolog.html">24. Prolog</a></li><li class="chapter-item expanded "><a href="../onlisp/25-object-oriented-lisp.html">25. Object-Oriented Lisp</a></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -196,18 +175,18 @@
 <ul>
 <li>유틸리티: 프로그램을 쉽게 쓸 수 있게 해주는 연산자.
 <ul>
-<li>&quot;유틸리티&quot;라는 단어에 정확한 정의가 없음.</li>
-<li>어플리케이션이라고 하기엔 작고, 일부분이라고 하기에는 너무 범용적인 경우 &quot;유틸리티&quot;라 칭함.</li>
+<li>"유틸리티"라는 단어에 정확한 정의가 없음.</li>
+<li>어플리케이션이라고 하기엔 작고, 일부분이라고 하기에는 너무 범용적인 경우 "유틸리티"라 칭함.</li>
 </ul>
 </li>
 </ul>
 <pre><code class="language-lisp">(defun nicknames (name)
-  (list 'nick (concatenate 'string &quot;foo-&quot; name)))
+  (list 'nick (concatenate 'string "foo-" name)))
 
-(nicknames &quot;park&quot;)
-;;=&gt; (NICK &quot;foo-park&quot;)
+(nicknames "park")
+;;=&gt; (NICK "foo-park")
 
-(setq names '(&quot;park&quot; &quot;jane&quot; &quot;june&quot;))
+(setq names '("park" "jane" "june"))
 
 ;; all-nicknames 함수를 만들어도 되지만
 (defun all-nicknames (names)
@@ -218,7 +197,7 @@
   
 ;; mapcan을 알고 있다면, all-nicknames 함수를 만들 필요가 없다.
 (mapcan #'nicknames names)
-;;=&gt; (NICK &quot;foo-park&quot; NICK &quot;foo-jane&quot; NICK &quot;foo-june&quot;)
+;;=&gt; (NICK "foo-park" NICK "foo-jane" NICK "foo-june")
 
 (mapcan #'reverse '((2 1 0) (5 4 3)))
 ;; (0 1 2 3 4 5)
@@ -299,7 +278,7 @@
 <p><code>group</code>함수의 예:</p>
 <pre><code class="language-lisp">(defun group (source n)
   (if (zerop n)
-      (error &quot;zero length&quot;))
+      (error "zero length"))
   (labels ((rec (source acc)
              (let ((rest (nthcdr n source)))
                (if (consp rest)
@@ -496,29 +475,29 @@
 <h2 id="46-io"><a class="header" href="#46-io">4.6. I/O</a></h2>
 <pre><code class="language-lisp">(defun readlist (&amp;rest args)
   (values (read-from-string
-           (concatenate 'string &quot;(&quot; (apply #'read-line args) &quot;)&quot;))))
+           (concatenate 'string "(" (apply #'read-line args) ")"))))
 (readlist)
-;;&lt;&lt; Call me &quot;Ed&quot;
-;;=&gt; (CALL ME &quot;Ed&quot;)
+;;&lt;&lt; Call me "Ed"
+;;=&gt; (CALL ME "Ed")
 </code></pre>
 <pre><code class="language-lisp">(defun prompt (&amp;rest args)
   (apply #'format *query-io* args)
   (read *query-io*))
 
-(prompt &quot;Enter a number between ~A and ~A.~%&gt;&gt; &quot; 1 10)
+(prompt "Enter a number between ~A and ~A.~%&gt;&gt; " 1 10)
 ;;&gt;&gt; Enter a number between 1 and 10.
 ;;&lt;&lt; 3
 ;;=&gt; 3
 </code></pre>
 <pre><code class="language-lisp">(defun break-loop (fn quit &amp;rest args)
-  (format *query-io* &quot;Entering break-loop.~%&quot;)
+  (format *query-io* "Entering break-loop.~%")
   (loop
     (let ((in (apply #'prompt args)))
       (if (funcall quit in)
           (return)
-          (format *query-io* &quot;~A~%&quot; (funcall fn in))))))
+          (format *query-io* "~A~%" (funcall fn in))))))
 
-(break-loop #'eval #'(lambda (x) (eq x :q)) &quot;&gt;&gt; &quot;)
+(break-loop #'eval #'(lambda (x) (eq x :q)) "&gt;&gt; ")
 ;;&gt;&gt; Entering break-loop.
 ;;&gt;&gt; &gt;&gt;
 ;;&lt;&lt; (+ 2 3)
@@ -533,19 +512,19 @@
     (dolist (a args)
       (princ a s))))
 
-(mkstr pi &quot; pieces of &quot; 'pi)
-;;=&gt; &quot;3.141592653589793d0 pieces of PI&quot;
+(mkstr pi " pieces of " 'pi)
+;;=&gt; "3.141592653589793d0 pieces of PI"
 </code></pre>
 <pre><code class="language-lisp">(defun symb (&amp;rest args)
   (values (intern (apply #'mkstr args))))
 
-(symb 'ar &quot;Madi&quot; #\L #\L 0)
+(symb 'ar "Madi" #\L #\L 0)
 ;;=&gt; |ARMadiLL0|
 </code></pre>
 <pre><code class="language-lisp">(defun reread (&amp;rest args)
   (values (read-from-string (apply #'mkstr args))))
 
-(reread 'a 'b &quot;c&quot;)
+(reread 'a 'b "c")
 ;;=&gt; ABC
 </code></pre>
 <pre><code class="language-lisp">(defun explode (sym)

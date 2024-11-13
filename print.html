@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="kr" class="light" dir="ltr">
+<html lang="kr" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="catchup-onlisp">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -30,15 +30,17 @@
 
         <!-- Custom theme stylesheets -->
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -60,19 +62,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -82,45 +81,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Index.html">들어가면서</a></li><li class="chapter-item expanded affix "><li class="part-title">On Lisp</li><li class="chapter-item expanded "><a href="onlisp/01-extensible-language.html">01. 확장 가능한 언어</a></li><li class="chapter-item expanded "><a href="onlisp/02-functions.html">02. 함수</a></li><li class="chapter-item expanded "><a href="onlisp/03-functional-programming.html">03. 함수형 프로그래밍</a></li><li class="chapter-item expanded "><a href="onlisp/04-utility-functions.html">04. 유틸리티 함수</a></li><li class="chapter-item expanded "><a href="onlisp/05-returning-functions.html">05. 함수를 반환하기</a></li><li class="chapter-item expanded "><a href="onlisp/06-functions-as-representation.html">06. 표현으로서의 함수</a></li><li class="chapter-item expanded "><a href="onlisp/07-macros.html">07. 매크로</a></li><li class="chapter-item expanded "><a href="onlisp/08-when-to-use-macros.html">08. When to Use Macros</a></li><li class="chapter-item expanded "><a href="onlisp/09-variable-capture.html">09. Variable Capture</a></li><li class="chapter-item expanded "><a href="onlisp/10-other-macro-pitfalls.html">10. Other Macro Pitfalls</a></li><li class="chapter-item expanded "><a href="onlisp/11-classic-macros.html">11. Classic Macros</a></li><li class="chapter-item expanded "><a href="onlisp/12-generalized-variables.html">12. Generalized Variables</a></li><li class="chapter-item expanded "><a href="onlisp/13-computation-at-compile-time.html">13. Computation at Compile-Time</a></li><li class="chapter-item expanded "><a href="onlisp/14-anaphoric-macros.html">14. Anaphoric Macros</a></li><li class="chapter-item expanded "><a href="onlisp/15-macros-returning-functions.html">15. Macros Returning Functions</a></li><li class="chapter-item expanded "><a href="onlisp/16-macro-defining-macros.html">16. Macro-Defining Macros</a></li><li class="chapter-item expanded "><a href="onlisp/17-read-macros.html">17. Read-Macros</a></li><li class="chapter-item expanded "><a href="onlisp/18-destructuring.html">18. Destructuring</a></li><li class="chapter-item expanded "><a href="onlisp/19-a-query-compiler.html">19. A Query Compiler</a></li><li class="chapter-item expanded "><a href="onlisp/20-continuations.html">20. Continuations</a></li><li class="chapter-item expanded "><a href="onlisp/21-multiple-processes.html">21. Multiple Processes</a></li><li class="chapter-item expanded "><a href="onlisp/22-nondeterminism.html">22. Nondeterminism</a></li><li class="chapter-item expanded "><a href="onlisp/23-parsing-with-atns.html">23. Parsing with ATNs</a></li><li class="chapter-item expanded "><a href="onlisp/24-prolog.html">24. Prolog</a></li><li class="chapter-item expanded "><a href="onlisp/25-object-oriented-lisp.html">25. Object-Oriented Lisp</a></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -216,7 +195,7 @@
 <li>
 <p>프로그램을 작성하면서 계획을 세우는 능력은 두 가지 중대한 결과를 가져온다:</p>
 <ul>
-<li>프로그램을 작성하는 데 걸리는 시간이 짧아진다. 
+<li>프로그램을 작성하는 데 걸리는 시간이 짧아진다.
 <ul>
 <li>계획을 세우면서 동시에 프로그램을 작성하면 주의 집중이 잘된다.</li>
 </ul>
@@ -292,7 +271,7 @@
 <h2 id="21-데이터로서-함수"><a class="header" href="#21-데이터로서-함수">2.1 데이터로서 함수</a></h2>
 <ul>
 <li>
-<p>리스프 자체가 함수 집합 </p>
+<p>리스프 자체가 함수 집합</p>
 <ul>
 <li>새로운 오퍼레이터를 추가할 수 있음.</li>
 </ul>
@@ -429,25 +408,25 @@
     (human
      (speak))))
 
-(defun wag-tail () (print &quot;wag-tail&quot;))
-(defun bark () (print &quot;bark&quot;))
-(defun scurry () (print &quot;scurry&quot;))
-(defun squeak () (print &quot;squeak&quot;))
-(defun rub-legs () (print &quot;rub-legs&quot;))
-(defun scratch-carpet () (print &quot;scratch-carpet&quot;))
-(defun speak () (print &quot;speak&quot;))
+(defun wag-tail () (print "wag-tail"))
+(defun bark () (print "bark"))
+(defun scurry () (print "scurry"))
+(defun squeak () (print "squeak"))
+(defun rub-legs () (print "rub-legs"))
+(defun scratch-carpet () (print "scratch-carpet"))
+(defun speak () (print "speak"))
 
 (behave 'dog)
-;;&gt;&gt; &quot;wag-tail&quot;
-;;&gt;&gt; &quot;bark&quot;
+;;&gt;&gt; "wag-tail"
+;;&gt;&gt; "bark"
 
 (behave 'rat)
-;;&gt;&gt; &quot;scurry&quot;
-;;&gt;&gt; &quot;squeak&quot;
+;;&gt;&gt; "scurry"
+;;&gt;&gt; "squeak"
 
 (behave 'cat)
-;;&gt;&gt; &quot;rub-legs&quot;
-;;&gt;&gt; &quot;scratch-carpet&quot;
+;;&gt;&gt; "rub-legs"
+;;&gt;&gt; "scratch-carpet"
 
 (behave 'human)
 ;;&gt;&gt; speak
@@ -461,8 +440,8 @@
           (bark)))
 
 (behave2 'dog)
-;;&gt;&gt; &quot;wag-tail&quot;
-;;&gt;&gt; &quot;bark&quot;
+;;&gt;&gt; "wag-tail"
+;;&gt;&gt; "bark"
 
 (setf (get 'all 'behavior)
       #'(lambda ()
@@ -471,9 +450,9 @@
           (scratch-carpet)))
 
 (behave2 'all)
-;;&gt;&gt; &quot;bark&quot;
-;;&gt;&gt; &quot;scurry&quot;
-;;&gt;&gt; &quot;scratch-carpet&quot;
+;;&gt;&gt; "bark"
+;;&gt;&gt; "scurry"
+;;&gt;&gt; "scratch-carpet"
 
 </code></pre>
 <h2 id="25-범위scope"><a class="header" href="#25-범위scope">2.5 범위(Scope)</a></h2>
@@ -885,18 +864,18 @@ lst
 <ul>
 <li>유틸리티: 프로그램을 쉽게 쓸 수 있게 해주는 연산자.
 <ul>
-<li>&quot;유틸리티&quot;라는 단어에 정확한 정의가 없음.</li>
-<li>어플리케이션이라고 하기엔 작고, 일부분이라고 하기에는 너무 범용적인 경우 &quot;유틸리티&quot;라 칭함.</li>
+<li>"유틸리티"라는 단어에 정확한 정의가 없음.</li>
+<li>어플리케이션이라고 하기엔 작고, 일부분이라고 하기에는 너무 범용적인 경우 "유틸리티"라 칭함.</li>
 </ul>
 </li>
 </ul>
 <pre><code class="language-lisp">(defun nicknames (name)
-  (list 'nick (concatenate 'string &quot;foo-&quot; name)))
+  (list 'nick (concatenate 'string "foo-" name)))
 
-(nicknames &quot;park&quot;)
-;;=&gt; (NICK &quot;foo-park&quot;)
+(nicknames "park")
+;;=&gt; (NICK "foo-park")
 
-(setq names '(&quot;park&quot; &quot;jane&quot; &quot;june&quot;))
+(setq names '("park" "jane" "june"))
 
 ;; all-nicknames 함수를 만들어도 되지만
 (defun all-nicknames (names)
@@ -907,7 +886,7 @@ lst
   
 ;; mapcan을 알고 있다면, all-nicknames 함수를 만들 필요가 없다.
 (mapcan #'nicknames names)
-;;=&gt; (NICK &quot;foo-park&quot; NICK &quot;foo-jane&quot; NICK &quot;foo-june&quot;)
+;;=&gt; (NICK "foo-park" NICK "foo-jane" NICK "foo-june")
 
 (mapcan #'reverse '((2 1 0) (5 4 3)))
 ;; (0 1 2 3 4 5)
@@ -988,7 +967,7 @@ lst
 <p><code>group</code>함수의 예:</p>
 <pre><code class="language-lisp">(defun group (source n)
   (if (zerop n)
-      (error &quot;zero length&quot;))
+      (error "zero length"))
   (labels ((rec (source acc)
              (let ((rest (nthcdr n source)))
                (if (consp rest)
@@ -1185,29 +1164,29 @@ lst
 <h2 id="46-io"><a class="header" href="#46-io">4.6. I/O</a></h2>
 <pre><code class="language-lisp">(defun readlist (&amp;rest args)
   (values (read-from-string
-           (concatenate 'string &quot;(&quot; (apply #'read-line args) &quot;)&quot;))))
+           (concatenate 'string "(" (apply #'read-line args) ")"))))
 (readlist)
-;;&lt;&lt; Call me &quot;Ed&quot;
-;;=&gt; (CALL ME &quot;Ed&quot;)
+;;&lt;&lt; Call me "Ed"
+;;=&gt; (CALL ME "Ed")
 </code></pre>
 <pre><code class="language-lisp">(defun prompt (&amp;rest args)
   (apply #'format *query-io* args)
   (read *query-io*))
 
-(prompt &quot;Enter a number between ~A and ~A.~%&gt;&gt; &quot; 1 10)
+(prompt "Enter a number between ~A and ~A.~%&gt;&gt; " 1 10)
 ;;&gt;&gt; Enter a number between 1 and 10.
 ;;&lt;&lt; 3
 ;;=&gt; 3
 </code></pre>
 <pre><code class="language-lisp">(defun break-loop (fn quit &amp;rest args)
-  (format *query-io* &quot;Entering break-loop.~%&quot;)
+  (format *query-io* "Entering break-loop.~%")
   (loop
     (let ((in (apply #'prompt args)))
       (if (funcall quit in)
           (return)
-          (format *query-io* &quot;~A~%&quot; (funcall fn in))))))
+          (format *query-io* "~A~%" (funcall fn in))))))
 
-(break-loop #'eval #'(lambda (x) (eq x :q)) &quot;&gt;&gt; &quot;)
+(break-loop #'eval #'(lambda (x) (eq x :q)) "&gt;&gt; ")
 ;;&gt;&gt; Entering break-loop.
 ;;&gt;&gt; &gt;&gt;
 ;;&lt;&lt; (+ 2 3)
@@ -1222,19 +1201,19 @@ lst
     (dolist (a args)
       (princ a s))))
 
-(mkstr pi &quot; pieces of &quot; 'pi)
-;;=&gt; &quot;3.141592653589793d0 pieces of PI&quot;
+(mkstr pi " pieces of " 'pi)
+;;=&gt; "3.141592653589793d0 pieces of PI"
 </code></pre>
 <pre><code class="language-lisp">(defun symb (&amp;rest args)
   (values (intern (apply #'mkstr args))))
 
-(symb 'ar &quot;Madi&quot; #\L #\L 0)
+(symb 'ar "Madi" #\L #\L 0)
 ;;=&gt; |ARMadiLL0|
 </code></pre>
 <pre><code class="language-lisp">(defun reread (&amp;rest args)
   (values (read-from-string (apply #'mkstr args))))
 
-(reread 'a 'b &quot;c&quot;)
+(reread 'a 'b "c")
 ;;=&gt; ABC
 </code></pre>
 <pre><code class="language-lisp">(defun explode (sym)
@@ -1612,7 +1591,7 @@ x
 </code></pre>
 <h2 id="72-역-따옴표backquote"><a class="header" href="#72-역-따옴표backquote">7.2. 역 따옴표(Backquote)</a></h2>
 <ul>
-<li>따옴표 <code>'</code> 방향을 역으로 한 역 따옴표 <code>`</code> </li>
+<li>따옴표 <code>'</code> 방향을 역으로 한 역 따옴표 <code>`</code></li>
 <li>백쿼트(backquote) 혹은 백틱(backtick)라고도 하는데 리스프에서는 백쿼트라는 말을 쓴다.</li>
 </ul>
 <pre><code class="language-lisp">(defvar a 1)
@@ -1909,10 +1888,10 @@ x
 <tr><td>심볼 매크로</td><td>symbol-macrolet</td><td>심볼처럼 호출</td></tr>
 </tbody></table>
 </div>
-<pre><code class="language-lisp">(symbol-macrolet ((hi (progn (print &quot;Howdy&quot;)
+<pre><code class="language-lisp">(symbol-macrolet ((hi (progn (print "Howdy")
                              1)))
   (+ hi 2))
-;;&gt;&gt; &quot;Howdy&quot;
+;;&gt;&gt; "Howdy"
 ;;=&gt; 3
 </code></pre>
 <p>18장에서 심볼 매크로를 사용하는 방법을 설명한다.</p>
@@ -1930,15 +1909,15 @@ x
 <li>macroexpand-1</li>
 <li>symbol-macrolet</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="08-when-to-use-macros"><a class="header" href="#08-when-to-use-macros">08. When to Use Macros</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="08-언제-매크로를-사용하는가"><a class="header" href="#08-언제-매크로를-사용하는가">08. 언제 매크로를 사용하는가</a></h1>
 <h2 id="81-when-nothing-else-will-do"><a class="header" href="#81-when-nothing-else-will-do">8.1. When Nothing Else Will Do</a></h2>
-<h2 id="82-macro-or-function"><a class="header" href="#82-macro-or-function">8.2. Macro or Function?</a></h2>
+<h2 id="82-매크로-혹은-함수"><a class="header" href="#82-매크로-혹은-함수">8.2. 매크로 혹은 함수?</a></h2>
 <h2 id="83-applications-for-macros"><a class="header" href="#83-applications-for-macros">8.3. Applications for Macros</a></h2>
 <h2 id="짚고-넘어가기-7"><a class="header" href="#짚고-넘어가기-7">짚고 넘어가기</a></h2>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="09-variable-capture"><a class="header" href="#09-variable-capture">09. Variable Capture</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="09-변수-캡쳐variable-capture"><a class="header" href="#09-변수-캡쳐variable-capture">09. 변수 캡쳐(Variable Capture)</a></h1>
 <h2 id="91-macro-argument-capture"><a class="header" href="#91-macro-argument-capture">9.1. Macro Argument Capture</a></h2>
 <h2 id="92-free-symbol-capture"><a class="header" href="#92-free-symbol-capture">9.2. Free Symbol Capture</a></h2>
-<h2 id="93-when-capture-occurs"><a class="header" href="#93-when-capture-occurs">9.3. When Capture Occurs</a></h2>
+<h2 id="93-언제-캡쳐가-일어나는가"><a class="header" href="#93-언제-캡쳐가-일어나는가">9.3. 언제 캡쳐가 일어나는가</a></h2>
 <h2 id="94-avoiding-capture-with-better-names"><a class="header" href="#94-avoiding-capture-with-better-names">9.4. Avoiding Capture with Better Names</a></h2>
 <h2 id="95-avoiding-capture-by-prior-evaluation"><a class="header" href="#95-avoiding-capture-by-prior-evaluation">9.5. Avoiding Capture by Prior Evaluation</a></h2>
 <h2 id="96-avoiding-capture-with-gensyms"><a class="header" href="#96-avoiding-capture-with-gensyms">9.6. Avoiding Capture with Gensyms</a></h2>
@@ -1946,11 +1925,53 @@ x
 <h2 id="98-capture-in-other-name-spaces"><a class="header" href="#98-capture-in-other-name-spaces">9.8. Capture in Other Name-Spaces</a></h2>
 <h2 id="99-why-bother"><a class="header" href="#99-why-bother">9.9. Why Bother?</a></h2>
 <h2 id="짚고-넘어가기-8"><a class="header" href="#짚고-넘어가기-8">짚고 넘어가기</a></h2>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="10-other-macro-pitfalls"><a class="header" href="#10-other-macro-pitfalls">10. Other Macro Pitfalls</a></h1>
-<h2 id="101-number-of-evaluations"><a class="header" href="#101-number-of-evaluations">10.1. Number of Evaluations</a></h2>
-<h2 id="102-order-of-evaluation"><a class="header" href="#102-order-of-evaluation">10.2. Order of Evaluation</a></h2>
-<h2 id="103-non-functional-expanders"><a class="header" href="#103-non-functional-expanders">10.3. Non-functional Expanders</a></h2>
-<h2 id="104-recursion"><a class="header" href="#104-recursion">10.4. Recursion</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="10-또-다른-매크로의-위험성"><a class="header" href="#10-또-다른-매크로의-위험성">10. 또 다른 매크로의 위험성</a></h1>
+<h2 id="101-평가-횟수"><a class="header" href="#101-평가-횟수">10.1. 평가 횟수</a></h2>
+<pre><code class="language-lisp">;;; Figure 10.1: Controlling argument evaluation.
+
+;; 올바른 버전
+(defmacro for-correct ((var start stop) &amp;body body)
+  (let ((gstop (gensym)))
+    `(do ((,var ,start (1+ ,var))
+          (,gstop ,stop))
+         ((&gt; ,var ,gstop))
+       ,@body)))
+
+;; 여러 번 평가:
+(defmacro for-eval ((var start stop) &amp;body body)
+  `(do ((,var ,start (1+ ,var)))             ; 올바른 버전에 비해, gensym을 사용하지 않았다.
+       ((&gt; ,var ,stop))
+     ,@body))
+
+;; 옳지 않은 평가 순서:
+(defmacro for-order ((var start stop) &amp;body body)
+  (let ((gstop (gensym)))
+    `(do ((,gstop ,stop)
+          (,var ,start (1+ ,var)))          ; 올바른 버전에 비해, 1+ 가 아래에 있다
+         ((&gt; ,var ,gstop))
+       ,@body)))
+</code></pre>
+<h2 id="102-평가-순서"><a class="header" href="#102-평가-순서">10.2. 평가 순서</a></h2>
+<pre><code class="language-lisp">(setq x 10)
+
+
+(+ (setq x 3) x)
+;;=&gt; 6
+</code></pre>
+<pre><code class="language-lisp">(let ((x 1))
+  (for-order (i x (setq x 13))
+    (princ i)))
+;;&gt;&gt; 13
+;;=&gt; NIL
+</code></pre>
+<pre><code class="language-lisp">(let ((x 1))
+  (for-correct (i x (setq x 13))
+    (princ i)))
+;;&gt;&gt; 12345678910111213
+;;=&gt; NIL
+</code></pre>
+<h2 id="103-함수형이-아닌-익스펜더"><a class="header" href="#103-함수형이-아닌-익스펜더">10.3. 함수형이 아닌 익스펜더</a></h2>
+<h2 id="104-재귀"><a class="header" href="#104-재귀">10.4. 재귀</a></h2>
 <h2 id="짚고-넘어가기-9"><a class="header" href="#짚고-넘어가기-9">짚고 넘어가기</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="11-classic-macros"><a class="header" href="#11-classic-macros">11. Classic Macros</a></h1>
 <h2 id="111-creating-context"><a class="header" href="#111-creating-context">11.1. Creating Context</a></h2>
